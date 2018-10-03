@@ -20,114 +20,91 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HelloWorldController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NameService/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EurekaServiceApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EurekaService/src/main/java/org/sysu/eurekaservice/EurekaServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivitiServiceApplication.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/ActivitiServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#288#289#0" expanded="true" />
-                <element signature="e#365#366#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EurekaService/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActivitiService/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivitiServiceApplicationTests.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#958#959#0" expanded="true" />
-                <element signature="e#994#995#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="HelloWorldController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ActivitiController.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="853">
+                  <caret line="159" selection-start-line="159" selection-end-line="159" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/util/CommonUtil.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ActivitiServiceApplicationTests.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1220">
+                  <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="ActivitiServiceApplicationTests.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-140">
+                  <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,10 +137,8 @@
         <option value="$PROJECT_DIR$/src/NameService/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/resources/application-prod.properties" />
         <option value="$PROJECT_DIR$/src/ActivitiService/src/main/resources/logback-spring.xml" />
-        <option value="$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/Controller/HelloWorldController.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/test/java/org/sysu/nameservice/NameServiceApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java" />
         <option value="$PROJECT_DIR$/src/EurekaService/src/main/java/org/sysu/eurekaservice/EurekaServiceApplication.java" />
         <option value="$PROJECT_DIR$/src/EurekaService/src/test/java/org/sysu/eurekaService/EurekaServiceApplicationTests.java" />
         <option value="$PROJECT_DIR$/src/ActivitiService/pom.xml" />
@@ -171,7 +146,11 @@
         <option value="$PROJECT_DIR$/src/NameService/pom.xml" />
         <option value="$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties" />
+        <option value="$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java" />
+        <option value="$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/ActivitiServiceApplication.java" />
+        <option value="$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java" />
+        <option value="$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java" />
       </list>
     </option>
   </component>
@@ -200,17 +179,17 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-380" />
+    <option name="y" value="12" />
+    <option name="width" value="1256" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,259 +206,14 @@
               <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
               <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="activitiservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="activitiservice" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="processes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActivitiService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="activitiservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eurekaservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eurekaService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="NameService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="nameservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="nameservice" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NameService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="nameservice" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,6 +229,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -517,7 +252,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ActivitiServiceApplication">
+  <component name="RunManager" selected="JUnit.ActivitiServiceApplicationTests.testTravelBooking">
     <configuration name="EurekaServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.sysu.eurekaservice.EurekaServiceApplication" />
       <module name="EurekaService" />
@@ -568,6 +303,29 @@
       <option name="PACKAGE_NAME" value="org.sysu.activitiservice" />
       <option name="MAIN_CLASS_NAME" value="org.sysu.activitiservice.ActivitiServiceApplicationTests" />
       <option name="METHOD_NAME" value="testLeave" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ActivitiServiceApplicationTests.testTravelBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ActivitiService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.sysu.activitiservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.sysu.activitiservice" />
+      <option name="MAIN_CLASS_NAME" value="org.sysu.activitiservice.ActivitiServiceApplicationTests" />
+      <option name="METHOD_NAME" value="testTravelBooking" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -664,9 +422,11 @@
       <item itemvalue="JUnit.ActivitiServiceApplicationTests.testLeave" />
       <item itemvalue="JUnit.ActivitiServiceApplicationTests.contextLoads" />
       <item itemvalue="JUnit.NameServiceApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.ActivitiServiceApplicationTests.testTravelBooking" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActivitiServiceApplicationTests.testTravelBooking" />
         <item itemvalue="JUnit.ActivitiServiceApplicationTests.testLeave" />
         <item itemvalue="Application.EurekaServiceApplication" />
         <item itemvalue="JUnit.ActivitiServiceApplicationTests.contextLoads" />
@@ -687,48 +447,48 @@
       <workItem from="1537692959919" duration="1224000" />
       <workItem from="1537695013659" duration="7363000" />
       <workItem from="1537968155284" duration="616000" />
-      <workItem from="1538537539145" duration="6893000" />
+      <workItem from="1538537539145" duration="23021000" />
+      <workItem from="1538581774714" duration="893000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.03 at 12h 09m 24s.xml">
-      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 05m 08s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_contextLoads - 2018.10.03 at 12h 10m 53s.xml">
-      <configuration name="ActivitiServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 09m 15s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_contextLoads - 2018.10.03 at 12h 11m 16s.xml">
-      <configuration name="ActivitiServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 11m 57s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testLeave - 2018.10.03 at 12h 12m 16s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testLeave" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 13m 01s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testLeave - 2018.10.03 at 12h 18m 29s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testLeave" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 13m 48s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_contextLoads - 2018.10.03 at 12h 21m 11s.xml">
-      <configuration name="ActivitiServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 14m 37s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_contextLoads - 2018.10.03 at 12h 23m 58s.xml">
-      <configuration name="ActivitiServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 20h 07m 34s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_contextLoads - 2018.10.03 at 12h 30m 22s.xml">
-      <configuration name="ActivitiServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 20h 08m 30s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_contextLoads - 2018.10.03 at 12h 30m 47s.xml">
-      <configuration name="ActivitiServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 22h 32m 41s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testLeave - 2018.10.03 at 13h 39m 00s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testLeave" configurationId="JUnit" />
+    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 22h 33m 56s.xml">
+      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16096000" />
+    <option name="totallyTimeSpent" value="33117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -742,16 +502,15 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.3970346" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3291592" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33113673" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42174628" />
       <window_info anchor="bottom" id="Spring" order="13" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24357034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25945538" />
       <window_info anchor="right" id="Bean Validation" order="4" />
       <window_info id="Web" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -759,6 +518,7 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32790223" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -771,41 +531,30 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-prod.properties">
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="67" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
+        <state relative-caret-position="120">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-prod.properties">
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="2440">
+          <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="1220">
+          <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -820,11 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -922,13 +666,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/logback-spring.xml" />
     <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -940,10 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -958,9 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -968,18 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#994#995#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1011,33 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EurekaService/src/main/java/org/sysu/eurekaservice/EurekaServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1045,14 +737,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EurekaService/src/main/java/org/sysu/eurekaservice/EurekaServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/ActivitiServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="22">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#288#289#0" expanded="true" />
             <element signature="e#365#366#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/test/java/org/sysu/activitiservice/ActivitiServiceApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="853">
+          <caret line="159" selection-start-line="159" selection-end-line="159" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
