@@ -1,0 +1,52 @@
+package org.sysu.nameservice.loadbalancer;
+
+import org.sysu.nameservice.loadbalancer.LoadBalancerStats;
+
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+
+/**
+ * Capture various stats per Server(node) in the LoadBalancer
+ */
+public class ServerStats {
+    Server server;
+
+    //关于响应时间在ribbon中的设置方式是使用了用分布来取代响应时间的设置
+
+    //正在执行的请求
+    AtomicInteger activeRequestCount = new AtomicInteger(0);
+
+    AtomicLong totalRequests = new AtomicLong();
+
+
+    public ServerStats(LoadBalancerStats loadBalancerStats) {
+
+    }
+
+    public void initialize(Server server) {
+        this.server = server;
+    }
+
+    public void incrementNumRequests() {
+        totalRequests.incrementAndGet();
+    }
+
+    public void incrementActiveRequestsCount() {
+        activeRequestCount.incrementAndGet();
+    }
+
+    public void decrementActiveRequestCount() {
+        if(activeRequestCount.decrementAndGet() < 0) {
+            activeRequestCount.set(0);
+        }
+    }
+
+    public int getActiveRequestsCount() {
+        int count = activeRequestCount.get();
+        return count;
+    }
+
+    public void noteResponseTime(double msecs) {
+        //
+    }
+}

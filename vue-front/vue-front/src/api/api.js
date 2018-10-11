@@ -3,10 +3,19 @@ import axios from 'axios';
 let url = 'http://localhost:8086';
 let bussinessServiceURL = 'http://localhost:8900';
 let fileStorageServiceURL = 'http://localhost:8899';
-let activitServiceURL = 'http://localhost:8762';
+let activitServiceURL = 'http://localhost:8763';
+let nameServiceURL = 'http://localhost:8770';
+
+export const testPostHelloWorld = (variables) => {
+    return axios.post(`${nameServiceURL}/helloworld`, variables)
+}
 
 export const testStartProcess = (variables, processModelKey) => {
     return axios.post(`${activitServiceURL}/startProcess/${processModelKey}`, variables)
+}
+
+export const testNSStartProcess = (variables, processModelKey) => {
+    return axios.post(`${nameServiceURL}/startProcess/${processModelKey}`, variables)
 }
 
 export const testPostApi = params => {

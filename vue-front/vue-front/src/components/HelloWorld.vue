@@ -7,7 +7,7 @@
 
 <script>
 import axios from 'axios';
-import {testPostApi, testGetApi, testPostProject, testGetProject, testAddProject, testUpdateProject, testStartProcess} from '../api/api';
+import {testPostApi, testGetApi, testPostProject, testGetProject, testAddProject, testUpdateProject, testStartProcess, testNSStartProcess, testPostHelloWorld} from '../api/api';
 
 export default {
   name: 'HelloWorld',
@@ -21,8 +21,15 @@ export default {
       test: "test"
     }
     let processModelKey = "travel-booking"
-    testStartProcess(variables, processModelKey)
+    testNSStartProcess(variables, processModelKey)
       .then( res => {
+        console.log(res)
+      })
+    let params = new URLSearchParams();
+    params.append("test", "test");
+
+    testPostHelloWorld(variables)
+      .then(res => {
         console.log(res)
       })
   }
