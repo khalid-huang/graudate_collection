@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +14,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class   OkHttpClientRouter implements IIteractionRouter {
 
-//    INSTANCE;
     private static OkHttpClientRouter instance = new OkHttpClientRouter();
 
     private OkHttpClient okHttpClient;
@@ -34,13 +34,16 @@ public class   OkHttpClientRouter implements IIteractionRouter {
     public Response syncGet(String url, Map<String, String> headers) {
         Request.Builder requestBuilder = new Request.Builder().url(url);
 
-        for(Map.Entry<String, String> entry : headers.entrySet()) {
-            requestBuilder.addHeader(entry.getKey(), entry.getValue());
+        if(headers != null) {
+            headers.forEach((key,value) -> {
+                requestBuilder.addHeader(key, value);
+            });
         }
+
         try {
             Response response = okHttpClient.newCall(requestBuilder.build()).execute();
             return response;
-        } catch (IOException e) {
+        }catch (Exception e) {
             return null;
         }
     }
@@ -68,16 +71,19 @@ public class   OkHttpClientRouter implements IIteractionRouter {
     public Response syncPost(String url, Map<String,String> headers, Map<String, Object> params) {
         Request.Builder requestBuilder = new Request.Builder();
         requestBuilder.url(url);
-
         FormBody.Builder formBuilder = new FormBody.Builder();
-        params.forEach((key, value) -> {
-            formBuilder.add(key, JSON.toJSONString(value));
-        });
+        if(params != null) {
+            params.forEach((key, value) -> {
+                formBuilder.add(key, JSON.toJSONString(value));
+            });
+        }
         requestBuilder.post(formBuilder.build());
 
-        headers.forEach((key, value) -> {
-            requestBuilder.addHeader(key, value);
-        });
+        if(headers != null) {
+            headers.forEach((key, value) -> {
+                requestBuilder.addHeader(key, value);
+            });
+        }
 
         try {
             Response response = okHttpClient.newCall(requestBuilder.build()).execute();
@@ -93,15 +99,17 @@ public class   OkHttpClientRouter implements IIteractionRouter {
         requestBuilder.url(url);
 
         FormBody.Builder formBuilder = new FormBody.Builder();
-        params.forEach((key, value) -> {
-            formBuilder.add(key, JSON.toJSONString(value));
-        });
+        if(params != null) {
+            params.forEach((key, value) -> {
+                formBuilder.add(key, JSON.toJSONString(value));
+            });
+        }
         requestBuilder.post(formBuilder.build());
-
-        headers.forEach((key, value) -> {
-            requestBuilder.addHeader(key, value);
-        });
-
+        if(headers != null) {
+            headers.forEach((key, value) -> {
+                requestBuilder.addHeader(key, value);
+            });
+        }
         okHttpClient.newCall(requestBuilder.build()).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

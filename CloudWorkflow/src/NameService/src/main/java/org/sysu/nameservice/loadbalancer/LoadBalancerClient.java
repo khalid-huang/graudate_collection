@@ -10,9 +10,9 @@ public interface LoadBalancerClient extends ServiceInstanceChooser {
      * @param serviceId the service id to look up the LoadBalancer
      * @param request allows implementations to execute pre and post actions such as incrementing metrics
      * @return the result of the LoadBalancerRequest callback on the selected ServiceInstance
-     * @throws IOException
+     * @throws Exception
      */
-    <T> T execute(String serviceId, LoadBalancerRequest<T> request) throws IOException;
+    <T> T execute(String serviceId, LoadBalancerRequest<T> request) throws Exception;
 
 
     /**
@@ -25,7 +25,7 @@ public interface LoadBalancerClient extends ServiceInstanceChooser {
      * @return the result of the LoadBalancerRequest callback on the selected
      * ServiceInstance
      */
-    <T> T execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest<T> request) throws IOException;
+    <T> T execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest<T> request) throws Exception;
 
 
     /**

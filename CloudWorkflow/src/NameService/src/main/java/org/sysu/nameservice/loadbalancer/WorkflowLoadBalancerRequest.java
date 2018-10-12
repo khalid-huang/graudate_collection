@@ -15,7 +15,7 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest<String> 
 
     private String method;
 
-    private OkHttpClientRouter okHttpClientRouter;
+    private OkHttpClientRouter okHttpClientRouter = OkHttpClientRouter.getInstance();
 
     private Request request;
     /** 回调函数 */
@@ -59,7 +59,7 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest<String> 
 
     @Override
     public String apply(ServiceInstance instance) throws Exception {
-        String url = instance.getUri().getPath() + urlWithoutServerInfo;
+        String url = instance.getUri() +"/"+ urlWithoutServerInfo;
         if(!isAsync && method.equals("GET")) {
             Response response = okHttpClientRouter.syncGet(url, headers);
             return response.body().string();

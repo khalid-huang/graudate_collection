@@ -38,7 +38,7 @@ public class RoundRobinRule extends AbstractLoadBalancerRule {
             int serverCount = allServers.size();
 
             if((upCount == 0) || (serverCount == 0)) {
-                logger.warn("no up servers abailable from load balancer");
+                logger.warn("no up servers available from load balancer");
                 return null;
             }
 
@@ -64,10 +64,15 @@ public class RoundRobinRule extends AbstractLoadBalancerRule {
         return choose(getLoadBalancer(), key);
     }
 
+    @Override
+    public String getStatsClassName() {
+        return "BaseServerStats";
+    }
+
     private int incrementAndGetModulo(int modulo) {
         for(;;) {
             int current = nextServerCyclicCounter.get();
-            int next = (current + 1) & modulo;
+            int next = (current + 1) % modulo;
             if(nextServerCyclicCounter.compareAndSet(current, next)) {
                 return next;
             }

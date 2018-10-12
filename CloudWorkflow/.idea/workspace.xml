@@ -20,111 +20,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.6062603">
+    <splitter split-orientation="vertical" split-proportion="0.509061">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ServerManager.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/resourceProvider/ServerManager.java">
+          <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#622#623#0" expanded="true" />
-                    <element signature="e#669#670#0" expanded="true" />
-                    <element signature="method#getServerListByServiceId#0;class#ServerManager#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ActivitiService.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/service/ActivitiService.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GlobalContext.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/GlobalContext.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LoadBalancerClient.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerClient.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ILoadBalancer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ILoadBalancer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="OkHttpClientRouter.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpClientRouter.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="99">
-                  <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#702#703#0" expanded="true" />
-                    <element signature="e#733#734#0" expanded="true" />
-                    <element signature="method#asyncGet#0;class#OkHttpClientRouter#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/pom.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ActivitiService/pom.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="46">
-                  <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="BasicStopWatch.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/BasicStopWatch.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="80">
-                  <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AbstractLoadBalancer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/AbstractLoadBalancer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="41" selection-start-column="41" selection-end-column="41" />
+                <state relative-caret-position="27">
+                  <caret line="19" selection-start-line="19" selection-end-line="19" />
                 </state>
               </provider>
             </entry>
@@ -132,8 +35,8 @@
           <file leaf-file-name="WorkflowLoadBalancerRequest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerRequest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="57" selection-start-line="57" selection-end-line="57" />
+                <state relative-caret-position="118">
+                  <caret line="64" selection-start-line="64" selection-end-line="64" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -141,11 +44,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="OkHttpCallback.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpCallback.java">
+          <file leaf-file-name="OkHttpClientRouter.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpClientRouter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+                <state relative-caret-position="1129">
+                  <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#asyncGet#0;class#OkHttpClientRouter#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="WorkflowStatsRecorder.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowStatsRecorder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="126">
+                  <caret line="12" selection-start-line="12" selection-end-line="12" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -153,29 +69,52 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ActivitiController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java">
+          <file leaf-file-name="NameServiceApplicationTests.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/test/java/org/sysu/nameservice/NameServiceApplicationTests.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="42" column="85" selection-start-line="42" selection-start-column="85" selection-end-line="42" selection-end-column="85" />
+                <state relative-caret-position="33">
+                  <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HelloWorldController.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
+          <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/Server.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+                <state relative-caret-position="59">
+                  <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LoadBalancerRequest.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerRequest.java">
+          <file leaf-file-name="BaseLoadBalancer.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/BaseLoadBalancer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+                <state relative-caret-position="450">
+                  <caret line="153" column="33" lean-forward="true" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#3173#3174#0" expanded="true" />
+                    <element signature="e#3213#3214#0" expanded="true" />
+                    <element signature="e#8408#8409#0" expanded="true" />
+                    <element signature="e#8473#8474#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RoundRobinRule.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/RoundRobinRule.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1360">
+                  <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1998#1999#0" expanded="true" />
+                    <element signature="e#2051#2052#0" expanded="true" />
+                    <element signature="e#2106#2107#0" expanded="true" />
+                    <element signature="e#2130#2131#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -183,29 +122,110 @@
           <file leaf-file-name="WorkflowLoadBalancerClient.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+                <state relative-caret-position="167">
+                  <caret line="122" column="31" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="method#choose#0;class#WorkflowLoadBalancerClient#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
+          <file leaf-file-name="BaseServerStats.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/BaseServerStats.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="107">
-                  <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+                <state relative-caret-position="340">
+                  <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GlobalContext.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/GlobalContext.java">
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+                <state relative-caret-position="92">
+                  <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="NameServiceApplicationTests.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/test/java/org/sysu/nameservice/NameServiceApplicationTests.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="69">
+                  <caret line="18" selection-start-line="18" selection-end-line="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BaseServerStats.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/BaseServerStats.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="74">
+                  <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#773#774#0" expanded="true" />
+                    <element signature="e#809#810#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LoadBalancerRequest.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerRequest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="37">
+                  <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HelloWorldController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/controller/HelloWorldController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="220">
+                  <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="16" selection-start-column="16" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ActivitiServiceApplication.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/ActivitiServiceApplication.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="220">
+                  <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HelloWorldController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="227">
+                  <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ActivitiService.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/service/ActivitiService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-60">
+                  <caret line="32" selection-start-line="32" selection-end-line="32" />
                 </state>
               </provider>
             </entry>
@@ -234,19 +254,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerClient.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/util/Pair.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/Server.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/IRule.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/AbstractLoadBalancerRule.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/AbstractLoadBalancerRule.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ServerComparator.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/BaseLoadBalancer.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ServiceInstance.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/NumericMonitor.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/StopWatch.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/Timer.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/MonitorConfig.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/Counter.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/Clock.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/util/Clock.java" />
@@ -259,12 +266,6 @@
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/BasicTimer.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/Monitors.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/ServerStats.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ServerStats.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowBalancerContext.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerStats.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerContext.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowStatsRecorder.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/RoundRobinRule.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/AbstractMonitor.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/BasicCounter.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpCallback.java" />
@@ -272,19 +273,38 @@
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ILoadBalancer.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/resourceProvider/IResourceManager.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/AbstractLoadBalancer.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/BaseLoadBalancer.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/resourceProvider/ServerManager.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/util/ReflectUtil.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerClient.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/GlobalContext.java" />
         <option value="$PROJECT_DIR$/src/NameService/pom.xml" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpClientRouter.java" />
-        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerRequest.java" />
         <option value="$PROJECT_DIR$/src/ActivitiService/pom.xml" />
         <option value="$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java" />
         <option value="$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/IServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerClient.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/IServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/BaseServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/BaseServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/IRule.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/AbstractLoadBalancerRule.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/IServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/EmptyServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerContext.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowBalancerContext.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowStatsRecorder.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/Server.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/BaseLoadBalancer.java" />
+        <option value="$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpClientRouter.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerRequest.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerClient.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/RoundRobinRule.java" />
         <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/service/ActivitiService.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/BaseServerStats.java" />
+        <option value="$PROJECT_DIR$/src/NameService/src/test/java/org/sysu/nameservice/NameServiceApplicationTests.java" />
       </list>
     </option>
   </component>
@@ -313,8 +333,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-378" />
-    <option name="y" value="23" />
+    <option name="x" value="215" />
+    <option name="y" value="24" />
     <option name="width" value="1193" />
     <option name="height" value="788" />
   </component>
@@ -323,6 +343,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -444,6 +465,17 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nameservice" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nameservice" type="462c0819:PsiDirectoryNode" />
               <item name="interactionRouter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -467,7 +499,19 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nameservice" type="462c0819:PsiDirectoryNode" />
               <item name="loadbalancer" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
+              <item name="rule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nameservice" type="462c0819:PsiDirectoryNode" />
+              <item name="loadbalancer" type="462c0819:PsiDirectoryNode" />
+              <item name="stats" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
@@ -500,11 +544,37 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudWorkflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudWorkflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nameservice" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -545,7 +615,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.NameServiceApplication">
+  <component name="RunManager" selected="JUnit.NameServiceApplicationTests.contextLoads">
     <configuration name="EurekaServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.sysu.eurekaservice.EurekaServiceApplication" />
       <module name="EurekaService" />
@@ -720,11 +790,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NameServiceApplicationTests.contextLoads" />
         <item itemvalue="Application.EurekaServiceApplication" />
         <item itemvalue="JUnit.ActivitiServiceApplicationTests.testTravelBooking" />
         <item itemvalue="JUnit.ActivitiServiceApplicationTests.testLeave" />
         <item itemvalue="JUnit.ActivitiServiceApplicationTests.contextLoads" />
-        <item itemvalue="JUnit.NameServiceApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -754,43 +824,45 @@
       <workItem from="1539137645668" duration="3447000" />
       <workItem from="1539156081735" duration="8638000" />
       <workItem from="1539241421679" duration="16026000" />
+      <workItem from="1539309619342" duration="8773000" />
+      <workItem from="1539328305013" duration="8175000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 09m 15s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 11m 00s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 11m 57s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 11m 43s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 13m 01s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 16m 19s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 13m 48s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 18m 56s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 19h 14m 37s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 20m 37s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 20h 07m 34s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 21m 38s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 20h 08m 30s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 22m 56s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 22h 32m 41s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 24m 09s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.03 at 22h 33m 56s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 24m 52s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActivitiServiceApplicationTests_testTravelBooking - 2018.10.04 at 15h 12m 22s.xml">
-      <configuration name="ActivitiServiceApplicationTests.testTravelBooking" configurationId="JUnit" />
+    <history-entry file="NameServiceApplicationTests_contextLoads - 2018.10.12 at 17h 27m 37s.xml">
+      <configuration name="NameServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133185000" />
+    <option name="totallyTimeSpent" value="150133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -808,15 +880,16 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.3970346" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32784185" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3937397" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5074135" />
       <window_info anchor="bottom" id="Spring" order="13" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25567323" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21709532" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -824,7 +897,6 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32784185" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943144" />
@@ -872,68 +944,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/controller/HelloWorldController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/StepCounter.java" />
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/StepLong.java" />
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ServerStats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1525">
-          <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getExecuteTracer#0;class#LoadBalancerContext#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowStatsRecorder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/AbstractLoadBalancerRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/StopWatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/NumericMonitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -959,13 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -997,37 +1004,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerStats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.9.0/okhttp-3.9.0-sources.jar!/okhttp3/OkHttpClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="474" column="35" selection-start-line="474" selection-start-column="35" selection-end-line="474" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ServiceInstance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/IRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1049,36 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
           <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/RoundRobinRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1998#1999#0" expanded="true" />
-            <element signature="e#2051#2052#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ILoadBalancer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowBalancerContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding>
-            <element signature="e#164#165#0" expanded="true" />
-            <element signature="e#189#190#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,86 +1057,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/util/ReflectUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/BaseLoadBalancer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding>
-            <element signature="e#2923#2931#0" expanded="true" />
-            <element signature="e#8408#8409#0" expanded="true" />
-            <element signature="e#8473#8474#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/AbstractLoadBalancer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/util/ReflectUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/monitor/BasicStopWatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
+        <state relative-caret-position="500">
           <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/GlobalContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="40">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="1480">
+          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerClient.java">
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="480">
+          <caret line="42" column="85" selection-start-line="42" selection-start-column="85" selection-end-line="42" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/resourceProvider/ServerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getServerListByServiceId#0;class#ServerManager#0" />
           </folding>
         </state>
       </provider>
@@ -1198,77 +1114,256 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/AbstractLoadBalancer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="112">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowBalancerContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+        <state relative-caret-position="95">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/ActivitiController.java">
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="42" column="85" selection-start-line="42" selection-start-column="85" selection-end-line="42" selection-end-column="85" />
+        <state relative-caret-position="155">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getExecuteTracer#0;class#LoadBalancerContext#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpCallback.java">
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        <state relative-caret-position="80">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/IServerStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/EmptyServerStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="108" column="52" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1979#1980#0" expanded="true" />
+            <element signature="e#2006#2007#0" expanded="true" />
+            <element signature="e#2481#2482#0" expanded="true" />
+            <element signature="e#2530#2531#0" expanded="true" />
+            <element signature="e#3177#3178#0" expanded="true" />
+            <element signature="e#3222#3223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/AbstractLoadBalancerRule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding>
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/IRule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ILoadBalancer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/controller/HelloWorldController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/controller/HelloWorldController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="227">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivitiService/src/main/java/org/sysu/activitiservice/ActivitiServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/LoadBalancerRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/ServiceInstance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/interactionRouter/OkHttpClientRouter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+        <state relative-caret-position="1129">
+          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#733#734#0" expanded="true" />
             <element signature="method#asyncGet#0;class#OkHttpClientRouter#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/resourceProvider/ServerManager.java">
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        <state relative-caret-position="118">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="method#getServerListByServiceId#0;class#ServerManager#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/service/ActivitiService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+        <state relative-caret-position="-60">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowLoadBalancerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="122" column="31" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#choose#0;class#WorkflowLoadBalancerClient#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/WorkflowStatsRecorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/stats/BaseServerStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/test/java/org/sysu/nameservice/NameServiceApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/BaseLoadBalancer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="153" column="33" lean-forward="true" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3173#3174#0" expanded="true" />
+            <element signature="e#3213#3214#0" expanded="true" />
+            <element signature="e#8408#8409#0" expanded="true" />
+            <element signature="e#8473#8474#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NameService/src/main/java/org/sysu/nameservice/loadbalancer/rule/RoundRobinRule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1998#1999#0" expanded="true" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2106#2107#0" expanded="true" />
+            <element signature="e#2130#2131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

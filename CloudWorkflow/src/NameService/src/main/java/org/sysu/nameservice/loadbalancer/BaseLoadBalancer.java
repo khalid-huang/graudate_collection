@@ -150,6 +150,11 @@ public class BaseLoadBalancer extends AbstractLoadBalancer {
                 //可以用于判断服务器列表是否发生变化
             }
             allServerList = allServers;
+            for(Server s : allServers) {
+                s.setAlive(true);
+            }
+            upServerList = allServerList;
+
         } finally {
             writeLock.unlock();
         }

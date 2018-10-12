@@ -1,12 +1,14 @@
 package org.sysu.nameservice.loadbalancer;
 
 import org.sysu.nameservice.loadbalancer.monitor.StopWatch;
+import org.sysu.nameservice.loadbalancer.stats.IServerStats;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class WorkflowStatsRecorder {
     private WorkflowBalancerContext context;
-    private ServerStats serverStats;
+    private IServerStats serverStats;
     private StopWatch trace;
 
     public WorkflowStatsRecorder(WorkflowBalancerContext context, Server server) {
@@ -17,11 +19,12 @@ public class WorkflowStatsRecorder {
         }
     }
 
-    public void recordStats(Object entity) {
-        if(this.trace != null && this.serverStats != null) {
+    public void recordStats(Map<String, Object> data) {
+        if(this.trace != null && this.serverStats!= null) {
             this.trace.stop();
             long duration = this.trace.getDuration(TimeUnit.MILLISECONDS);
-            this.context.noteRequestCompletion(serverStats,entity, duration);
+            data.put("duration", duration);
+            this.context.noteRequestCompletion(serverStats, data);
         }
     }
 }

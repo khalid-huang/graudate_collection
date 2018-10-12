@@ -4,7 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sysu.nameservice.loadbalancer.monitor.Monitors;
 import org.sysu.nameservice.loadbalancer.monitor.Timer;
+import org.sysu.nameservice.loadbalancer.stats.BaseServerStats;
+import org.sysu.nameservice.loadbalancer.stats.IServerStats;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -45,26 +48,26 @@ public class LoadBalancerContext {
         this.lb = lb;
     }
 
-    private void recordStats(ServerStats serverStats, long responseTime) {
-        if(serverStats == null) {
+    private void recordStats(BaseServerStats baseServerStats, long responseTime) {
+        if(baseServerStats == null) {
             return;
         }
-        serverStats.decrementActiveRequestCount();
-        serverStats.incrementNumRequests();
-        serverStats.noteResponseTime(responseTime);
+        baseServerStats.decrementActiveRequestCount();
+        baseServerStats.incrementNumRequests();
+        baseServerStats.noteResponseTime(responseTime);
     }
 
     //可能需要重新发起请求什么的
-    public void noteRequestCompletion(ServerStats serverStats, Object response, long responseTime) {
+    public void noteRequestCompletion(IServerStats serverStats, Map<String, Object> data) {
         if(serverStats == null) {
             return;
         }
-        recordStats(serverStats, responseTime);
+        serverStats.noteRequestCompletion(data);
     }
 
     /** 获取与服务相关的服务stat*/
-    public final ServerStats getServerStats(Server server) {
-        ServerStats serverStats = null;
+    public final IServerStats getServerStats(Server server) {
+        IServerStats serverStats = null;
         ILoadBalancer lb = this.getLoadBalancer();
         if(lb instanceof AbstractLoadBalancer) {
             LoadBalancerStats lbStats = ((AbstractLoadBalancer) lb).getLoadBalancerStats();

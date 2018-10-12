@@ -1,6 +1,11 @@
 package org.sysu.nameservice.loadbalancer;
 
-import java.util.HashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.sysu.nameservice.loadbalancer.stats.BaseServerStats;
+import org.sysu.nameservice.loadbalancer.stats.IServerStats;
+
+import java.lang.reflect.Constructor;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,10 +20,17 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  */
 public class LoadBalancerStats {
+    private static final Logger logger = LoggerFactory.getLogger(LoadBalancerStats.class);
+
+
+    private static final String statsClassNameSuffix = "org.sysu.nameservice.loadbalancer.stats";
+
+    private static final String DEFAULTSTATSCLASSNAME = "EmptyServerStats";
+
     String name;
 
     /** 如果有性能问题，可以考虑使用Google的CacheBuilder来实现缓存*/
-    private final ConcurrentHashMap<Server, ServerStats> serverStatsMap = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Server, IServerStats> serverStatsMap = new ConcurrentHashMap<>();
 
     public LoadBalancerStats() {
 
@@ -37,15 +49,27 @@ public class LoadBalancerStats {
         this.name = name;
     }
 
-    private ServerStats createServerStats(Server server) {
-        ServerStats ss = new ServerStats(this);
-        ss.initialize(server);
-        return ss;
+    private IServerStats createServerStats(Server server, String statsClassName) {
+        try {
+            statsClassName = statsClassNameSuffix + "." + statsClassName;
+            Class classType = Class.forName(statsClassName);
+            //带参数的创建方法的
+            IServerStats ss = (IServerStats) classType.newInstance();
+            ss.initialize(server);
+            return ss;
+        } catch (Exception e) {
+            logger.info("反射构建" + statsClassName + "失败: " + e.toString());
+            return null;
+        }
     }
 
     public void addServer(Server server) {
+        addServer(server,DEFAULTSTATSCLASSNAME);
+    }
+
+    public void addServer(Server server, String statsClassName) {
         if(serverStatsMap.get(server) == null) {
-            ServerStats ss = createServerStats(server);
+            IServerStats ss = createServerStats(server, statsClassName);
             serverStatsMap.putIfAbsent(server,ss);
         }
     }
@@ -56,47 +80,37 @@ public class LoadBalancerStats {
         }
     }
 
-    public ServerStats getServerStats(Server server) {
-        ServerStats ss = serverStatsMap.get(server);
-        if(ss == null) {
-            ss = createServerStats(server);
-            serverStatsMap.putIfAbsent(server, ss);
-        }
-        return ss;
+    /** 会保证在加入server的时候就已经创建了相应的Stats*/
+    public IServerStats getServerStats(Server server) {
+        return serverStatsMap.get(server);
     }
 
-    /**
-     * Method that updates the internal stats of Response times maintained on a per Server
-     * basis
-     * @param server
-     * @param msecs
-     */
-    public void noteResponseTime(Server server, double msecs){
-        ServerStats ss = getServerStats(server);
-        ss.noteResponseTime(msecs);
-    }
-
-    public void incrementActiveRequestsCount(Server server) {
-        ServerStats ss = getServerStats(server);
-        ss.incrementActiveRequestsCount();
-    }
-
-    public void decrementActiveRequestCount(Server server) {
-        ServerStats ss = getServerStats(server);
-        ss.decrementActiveRequestCount();
-    }
-
-    public void incrementNumRequest(Server server) {
-        ServerStats ss = getServerStats(server);
-        ss.incrementNumRequests();
-    }
+//    public void noteResponseTime(Server server, double msecs){
+//        BaseServerStats ss = getServerStats(server);
+//        ss.noteResponseTime(msecs);
+//    }
+//
+//    public void incrementActiveRequestsCount(Server server) {
+//        BaseServerStats ss = getServerStats(server);
+//        ss.incrementActiveRequestsCount();
+//    }
+//
+//    public void decrementActiveRequestCount(Server server) {
+//        BaseServerStats ss = getServerStats(server);
+//        ss.decrementActiveRequestCount();
+//    }
+//
+//    public void incrementNumRequest(Server server) {
+//        BaseServerStats ss = getServerStats(server);
+//        ss.incrementNumRequests();
+//    }
 
 
-    public ServerStats getSingleServerStat(Server server) {
+    public IServerStats getSingleServerStat(Server server) {
         return getServerStats(server);
     }
 
-    public Map<Server, ServerStats> getServerStats() {
+    public Map<Server, IServerStats> getServerStatsMap() {
         return serverStatsMap;
     }
 }

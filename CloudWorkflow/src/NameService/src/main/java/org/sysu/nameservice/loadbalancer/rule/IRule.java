@@ -18,4 +18,6 @@ public interface IRule {
     public void setLoadBalancer(ILoadBalancer lb);
 
     public ILoadBalancer getLoadBalancer();
+
+    public String getStatsClassName();
 }

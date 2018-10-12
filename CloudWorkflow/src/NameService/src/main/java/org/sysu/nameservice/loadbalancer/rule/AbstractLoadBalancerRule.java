@@ -15,4 +15,9 @@ public abstract class AbstractLoadBalancerRule implements IRule {
     public ILoadBalancer getLoadBalancer() {
         return lb;
     }
+
+    @Override
+    public String getStatsClassName() {
+        return "EmptyServerStats";
+    }
 }

@@ -1,5 +1,6 @@
 package org.sysu.nameservice.service;
 
+import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.sysu.nameservice.GlobalContext;
-import org.sysu.nameservice.loadbalancer.WorkflowLoadBalancerClient;
-import org.sysu.nameservice.loadbalancer.WorkflowLoadBalancerRequest;
+import org.sysu.nameservice.loadbalancer.*;
+import org.sysu.nameservice.loadbalancer.stats.BaseServerStats;
+import org.sysu.nameservice.loadbalancer.stats.IServerStats;
 
 import java.io.IOException;
 import java.util.Map;
@@ -28,10 +30,9 @@ public class ActivitiService {
         WorkflowLoadBalancerRequest request = new WorkflowLoadBalancerRequest(false, "GET", urlWithoutServerInfo, null, null, null);
         try {
             String responseString = (String) workflowLoadBalancerClient.execute(serviceId, request);
-            logger.info(responseString);
             return ResponseEntity.status(HttpStatus.OK).body(responseString);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.OK).body("can not connected");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body(e.toString());
         }
     }
 
@@ -47,8 +48,8 @@ public class ActivitiService {
             String responseString =  workflowLoadBalancerClient.execute(serviceId, request);
             logger.info("helloworld" + responseString);
             return ResponseEntity.status(HttpStatus.OK).body(responseString);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.OK).body("连接不上");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body(e.toString());
         }
     }
 
@@ -63,8 +64,8 @@ public class ActivitiService {
             String responseString =  workflowLoadBalancerClient.execute(serviceId, request);
             logger.info("startProcess: " + responseString);
             return ResponseEntity.status(HttpStatus.OK).body(responseString);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.OK).body("连接不上");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body(e.toString());
         }
     }
 
