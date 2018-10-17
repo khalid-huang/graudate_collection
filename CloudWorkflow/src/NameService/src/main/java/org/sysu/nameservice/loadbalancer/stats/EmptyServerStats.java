@@ -13,4 +13,13 @@ public class EmptyServerStats implements IServerStats {
     @Override
     public void initialize(Server server) {
     }
+
+    @Override
+    public void noteRequestFail(Map<String, Object> data) {
+    }
+
+    @Override
+    public void noteRequestStart(Map<String, Object> data) {
+
+    }
 }

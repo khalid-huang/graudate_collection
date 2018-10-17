@@ -53,7 +53,6 @@ public class LoadBalancerStats {
         try {
             statsClassName = statsClassNameSuffix + "." + statsClassName;
             Class classType = Class.forName(statsClassName);
-            //带参数的创建方法的
             IServerStats ss = (IServerStats) classType.newInstance();
             ss.initialize(server);
             return ss;

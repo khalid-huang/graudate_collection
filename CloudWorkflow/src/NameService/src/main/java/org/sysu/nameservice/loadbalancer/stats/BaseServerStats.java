@@ -62,6 +62,16 @@ public class BaseServerStats implements IServerStats {
     }
 
     @Override
+    public void noteRequestFail(Map<String, Object> data) {
+        decrementActiveRequestCount();
+    }
+
+    @Override
+    public void noteRequestStart(Map<String, Object> data) {
+        incrementActiveRequestsCount();
+    }
+
+    @Override
     public String toString() {
         return "BaseServerStats{" +
                 "server=" + server +

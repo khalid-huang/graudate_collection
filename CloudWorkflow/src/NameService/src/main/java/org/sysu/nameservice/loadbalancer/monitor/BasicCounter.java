@@ -21,6 +21,16 @@ public class BasicCounter extends AbstractMonitor<Number> implements Counter {
     }
 
     @Override
+    public void decrement() {
+        count.decrementAndGet();
+    }
+
+    @Override
+    public void decrement(long amount) {
+        count.getAndAdd(-amount);
+    }
+
+    @Override
     public Number getValue() {
         return count.get();
     }

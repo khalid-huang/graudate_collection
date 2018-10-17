@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Monitor type for tracking how much time something is taking
+ * 用于追求某些事件的发生时长；单位是时间/次
  */
 public interface Timer extends NumericMonitor<Long> {
     /**

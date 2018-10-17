@@ -31,7 +31,7 @@ public class Monitors {
     /**
      * create a new counter instance
      */
-    public static Counter newCounter(String name) {
+    public static BasicCounter newBasicCounter(String name) {
         return new BasicCounter(MonitorConfig.builder(name).build());
     }
 

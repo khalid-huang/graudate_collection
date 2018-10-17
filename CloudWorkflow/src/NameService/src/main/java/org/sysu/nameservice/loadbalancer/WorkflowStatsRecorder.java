@@ -22,6 +22,11 @@ public class WorkflowStatsRecorder {
     public void recordStats(Map<String, Object> data) {
         if(this.trace != null && this.serverStats!= null) {
             this.trace.stop();
+            /**获取执行结果*/
+            String status = data.get("status");
+            if(status.equals("fail")) {
+                this.context.();
+            }
             long duration = this.trace.getDuration(TimeUnit.MILLISECONDS);
             data.put("duration", duration);
             this.context.noteRequestCompletion(serverStats, data);

@@ -95,6 +95,7 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
         return execute(serviceId, workflowServer, request);
     }
 
+
     public <T> T executeActivitiService(LoadBalancerRequest<T> request) {
         return null;
     }
