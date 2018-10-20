@@ -14,4 +14,14 @@ public class WorkflowBalancerContext extends LoadBalancerContext {
     public void noteRequestCompletion(IServerStats serverStats, Map<String, Object> data) {
         super.noteRequestCompletion(serverStats, data);
     }
+
+    @Override
+    public void noteRequestStart(IServerStats serverStats, Map<String, Object> data) {
+        super.noteRequestStart(serverStats, data);
+    }
+
+    @Override
+    public void noteRequestFail(IServerStats serverStats, Map<String, Object> data) {
+        super.noteRequestFail(serverStats, data);
+    }
 }

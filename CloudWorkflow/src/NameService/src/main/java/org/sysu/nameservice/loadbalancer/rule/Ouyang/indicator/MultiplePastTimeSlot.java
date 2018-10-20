@@ -1,5 +1,6 @@
 package org.sysu.nameservice.loadbalancer.rule.Ouyang.indicator;
 
+import org.sysu.nameservice.GlobalContext;
 import org.sysu.nameservice.loadbalancer.rule.Ouyang.OuYangContext;
 import org.sysu.nameservice.loadbalancer.rule.Ouyang.help.FixedSafeDeque;
 import org.sysu.nameservice.loadbalancer.rule.Ouyang.help.HelpLevel;
@@ -7,17 +8,18 @@ import org.sysu.nameservice.loadbalancer.rule.Ouyang.help.TripleValue;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * 多时间槽的实现；也就是时间槽分片，每一片就是一个single时间槽；主要用于统计过去的信息
  * 这个时间槽的实现的当前时间就是最后一个分片的时间
  */
 public class MultiplePastTimeSlot {
-    /** 每个分片的时间长度，单位为ms；这里是30s*/
-    private static long defaultSingleInterval = 30000;
+    /** 每个分片的时间长度，单位为ms；这里是3s*/
+    private static long defaultSingleInterval = 3 * 1000;
 
-    /** 表示整体的时间长度；这里是10个，也就是表示可以缓存10 * 30s也就是5分钟的数据 */
-    private static final int defaultSize = 10;
+    /** 表示整体的时间长度；这里是100个，也就是表示可以缓存100 * 3s也就是5分钟的数据 */
+    private static final int defaultSize = 100;
 
     private long singleInterval;
 
@@ -40,24 +42,24 @@ public class MultiplePastTimeSlot {
 
     /**
      * 在响应时进行记录，
-     * @param rs 响应时间，单位是ms
+     * @param data
      */
-    public void noteRequestCompletion(double rs) {
+    public void noteRequestCompletion(Map<String, String> data) {
         SingleTimeSlot current = getCurrentSlot();
-        current.noteRequestCompletion(rs);
+        current.noteRequestCompletion(data);
     }
 
-    public void noteRequestFail() {
+    public void noteRequestFail(Map<String, String> data) {
         SingleTimeSlot current = getCurrentSlot();
-        current.noteReqeustFail();
+        current.noteReqeustFail(data);
     }
 
     /**
      * 在发起请求时进行记录
      */
-    public void noteRequestStart() {
+    public void noteRequestStart(Map<String, String> data) {
         SingleTimeSlot current = getCurrentSlot();
-        current.noteRequestStart();
+        current.noteRequestStart(data);
     }
 
     /**
@@ -91,36 +93,65 @@ public class MultiplePastTimeSlot {
         TripleValue workItems = new TripleValue(timeSlot.getWorkItems(), OuYangContext.levelOneWorkItemLimit,OuYangContext.levelOneWorkItemWeight);
         TripleValue processTime = new TripleValue(timeSlot.getProcessTimeAvg(), OuYangContext.levelOneAverageProcessTimeLimit, OuYangContext.levelOneAverageProcessTimeWeight);
         TripleValue executingThreads = new TripleValue(timeSlot.getExecutingThreads(), OuYangContext.levelOneExecutingThreadsLimit, OuYangContext.levelOneExecutingThreadsWeight);
+
         return HelpLevel.calculateBusyness(requestNum, processTime, workItems, executingThreads);
     }
 
+    /** 单时间槽的，直接计算 */
+    public int calculateBusynessForLevelOne() {
+        Deque<SingleTimeSlot> singleTimeSlots = timeSlots.getContainer();
+        return calculateBusynessFromSingleTimeSlot(singleTimeSlots.getFirst());
+    }
+
     /**
-     * 根据当前的时间槽计算得到busyness
+     * 根据当前的时间槽计算得到level Two busyness; 超参数由Context提供
      * @return
      */
-    public int calculateBusyness() {
+    public int calculateBusynessForLevelTwo() {
         Deque<SingleTimeSlot> singleTimeSlots = timeSlots.getContainer();
-        int size = singleTimeSlots.size();
         double sum = 0.0;
+        int i = 0;
         for(SingleTimeSlot timeSlot : singleTimeSlots) {
-            sum += calculateBusynessFromSingleTimeSlot(timeSlot);
+            if(i == 0) {
+                sum = calculateBusynessFromSingleTimeSlot(timeSlot);
+            } else {
+                /** 对于level two 的平滑*/
+                sum = OuYangContext.levelTwoAlpha * calculateBusynessFromSingleTimeSlot(timeSlot) + (1-OuYangContext.levelTwoAlpha) * sum;
+            }
+            ++i;
         }
-        return (int)(sum / size);
+        return (int)sum;
     }
 
     /** 表示获取 多少ms之前到目前的数据的均值*/
     /** pastTime 单位ms: 比如5分钟之前就是5 * 60000 */
-    public int calculateBusynessWithLimitTime(long pastTime) {
+    public int calculateBusynessForLevelTwoWithLimitTime(long pastTime) {
         long pastLimit = System.currentTimeMillis() - pastTime;
         Deque<SingleTimeSlot> singleTimeSlots = timeSlots.getContainer();
-        int size = singleTimeSlots.size();
         double sum = 0.0;
+        int i = 0;
         for(SingleTimeSlot timeSlot : singleTimeSlots) {
             if(pastLimit < timeSlot.getStarTime()) {
                 break;
             }
-            sum += calculateBusynessFromSingleTimeSlot(timeSlot);
+            if(i == 0) {
+                sum = calculateBusynessFromSingleTimeSlot(timeSlot);
+            } else {
+                /** 对于level two 的平滑*/
+                sum = OuYangContext.levelTwoAlpha * calculateBusynessFromSingleTimeSlot(timeSlot) + (1-OuYangContext.levelTwoAlpha) * sum;
+            }
+            ++i;
         }
-        return (int)(sum / size);
+        return (int)sum;
+    }
+
+    @Override
+    public String toString() {
+        return "MultiplePastTimeSlot{" +
+                "singleInterval=" + singleInterval +
+                ", interval=" + interval +
+                ", size=" + size +
+                ", timeSlots=" + timeSlots +
+                '}';
     }
 }

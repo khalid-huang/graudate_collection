@@ -48,4 +48,15 @@ public class FixedSafeDeque<T> {
     public boolean isEmpty() {
         return container.isEmpty();
     }
+
+    @Override
+    public String toString() {
+        String result =  "FixedSafeDeque{" +
+                "container=";
+        for(T t : container) {
+            result += " " + container.toString();
+        }
+        result += "}";
+        return result;
+    }
 }

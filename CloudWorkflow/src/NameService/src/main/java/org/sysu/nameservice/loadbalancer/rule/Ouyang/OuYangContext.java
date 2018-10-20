@@ -19,7 +19,7 @@ public class OuYangContext {
 
     /** 就是一个时间槽*/
     public static final int levelOneMultiplePastTimeSlotSize = 1;
-    public static final long levelOneSingleTimeSlotInterval = 30000;
+    public static final long levelOneSingleTimeSlotInterval = 3 * 1000;
 
     /** level two */
     public static final int levelTwoRequestNumberLimit = 100;
@@ -37,7 +37,8 @@ public class OuYangContext {
     public static final int levelTwoMultiplePastTimeSlotSize = 10;
     public static final long levelTwoSingleTimeSlotInterval = 30000;
     /** 表示获取从当前到过去5分钟内的数据的busyness indicator */
-    public static final long levelOnePastTime = 5 * 60000;
+    public static final long levelTwoPastTime = 5 * 60000;
+    public static final double levelTwoAlpha = 0.7;
 
     /** level three*/
     public static final long levelThreeRequestNumberLimit = 100;

@@ -224,6 +224,11 @@ public class BaseLoadBalancer extends AbstractLoadBalancer {
         }
     }
 
+    @Override
+    public Server chooseFirstServer(Object key) {
+        return this.upServerList.get(0);
+    }
+
     /* Returns either null, or "server:port/servlet" */
     public String choose(Object key) {
         if(rule == null) {

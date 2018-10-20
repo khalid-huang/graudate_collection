@@ -33,7 +33,15 @@ public class ActivitiController {
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
-        return activitiService.startProcess(data, processModelKey);
+        try {
+            String responseString = activitiService.startProcess(data, processModelKey);
+            response.put("status", "success");
+            response.put("response", responseString);
+        } catch (Exception e) {
+            response.put("status", "fail");
+            response.put("message", e.toString());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
 
@@ -50,7 +58,16 @@ public class ActivitiController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
-        return activitiService.getCurrentTasks(processInstanceId);
+        try {
+            String responseString = activitiService.getCurrentTasks(processInstanceId);
+            response.put("status", "success");
+            response.put("response", responseString);
+        } catch (Exception e) {
+            response.put("status", "fail");
+            response.put("message", e.toString());
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
 
@@ -68,7 +85,15 @@ public class ActivitiController {
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
-        return activitiService.getCurrentTasksOfAssignee(assignee, processInstanceId);
+        try {
+            String responseString = activitiService.getCurrentTasksOfAssignee(assignee, processInstanceId);
+            response.put("status", "success");
+            response.put("response", responseString);
+        } catch (Exception e) {
+            response.put("status", "fail");
+            response.put("message", e.toString());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @RequestMapping(value = "claimTask/{taskId}", method = RequestMethod.POST)
@@ -84,7 +109,15 @@ public class ActivitiController {
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
-        return activitiService.claimTask(data, taskId);
+        try {
+            String responseString = activitiService.claimTask(data, taskId);
+            response.put("status", "success");
+            response.put("response", responseString);
+        } catch (Exception e) {
+            response.put("status", "fail");
+            response.put("message", e.toString());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @RequestMapping(value = "completeTask/{taskId}", method = RequestMethod.POST)
@@ -100,7 +133,15 @@ public class ActivitiController {
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
-
-        return activitiService.completeTask(data, taskId);
+        try {
+            String responseString = activitiService.completeTask(data,taskId);
+            response.put("status", "success");
+            response.put("response", responseString);
+        } catch (Exception e) {
+            response.put("status", "fail");
+            response.put("message", e.toString());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
 }

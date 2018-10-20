@@ -1,0 +1,12 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+-- 这里要注意的一点是由于是多引擎实例，所以是本地的id与serverStr对应，而不是远程的procossInstanceId对应；
+CREATE TABLE `processInstanceRouting` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `activitiProcessInstanceId` varchar(255) NOT NULL COMMENT '流程实例ID',
+  `serverStr` varchar(255) NOT NULL COMMENT 'server的字符串表示，类型localhost:200',
+  `startTime` datetime DEFAULT NULL COMMENT '流程实例启动时间',
+  `finishTime` datetime DEFAULT NULL COMMENT '流程实例结束时间',
+  `processModelKey` varchar(255) DEFAULT NULL COMMENT '流程实例名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -32,7 +32,7 @@ public class Distribution {
             maxValue = val;
         } else if(val < minValue) {
             minValue = val;
-        } else if(val > minValue) {
+        } else if(val > maxValue) {
             maxValue = val;
         }
     }
@@ -84,6 +84,10 @@ public class Distribution {
         return maxValue;
     }
 
+    public double getSumValues() {
+        return sumValues;
+    }
+
     public double getMinValue() {
         return minValue;
     }
@@ -106,6 +110,7 @@ public class Distribution {
                 .append("{Distribution:")
                 .append("N=").append(getNumValues())
                 .append(": ").append(getMinValue())
+                .append("..").append(getSumValues())
                 .append("..").append(getMean())
                 .append("..").append(getMaxValue())
                 .append("}")

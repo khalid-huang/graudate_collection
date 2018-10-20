@@ -7,11 +7,9 @@ import org.sysu.nameservice.loadbalancer.ILoadBalancer;
 import org.sysu.nameservice.loadbalancer.LoadBalancerStats;
 import org.sysu.nameservice.loadbalancer.Server;
 import org.sysu.nameservice.loadbalancer.rule.AbstractLoadBalancerRule;
-import org.sysu.nameservice.loadbalancer.rule.RandomRule;
 import org.sysu.nameservice.loadbalancer.stats.BusynessIndicatorServerStats;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  *  Applying a general work scheduling or resource allocation mecha- nism (e.g. random choice) without considering how busy each engine is
@@ -76,12 +74,12 @@ public class LevelOneRule extends AbstractLoadBalancerRule {
             return null;
         }
         Server result = null;
-        int maxBusyness = Integer.MAX_VALUE;
+        int minBusyness = Integer.MAX_VALUE;
         for(Server server : reachableServer) {
             BusynessIndicatorServerStats ss = (BusynessIndicatorServerStats)  stats.getSingleServerStat(server);
             int tempBusyness = ss.getBusynessForLevelOne();
-            if(maxBusyness > tempBusyness) {
-                maxBusyness = tempBusyness;
+            if(minBusyness > tempBusyness) {
+                minBusyness = tempBusyness;
                 result = server;
             }
         }

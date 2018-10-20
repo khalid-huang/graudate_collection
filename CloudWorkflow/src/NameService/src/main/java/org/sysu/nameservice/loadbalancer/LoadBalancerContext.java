@@ -65,6 +65,20 @@ public class LoadBalancerContext {
         serverStats.noteRequestCompletion(data);
     }
 
+    public void noteRequestStart(IServerStats serverStats, Map<String,Object> data) {
+        if(serverStats == null) {
+            return;
+        }
+        serverStats.noteRequestStart(data);
+    }
+
+    public void noteRequestFail(IServerStats serverStats, Map<String, Object> data) {
+        if(serverStats == null) {
+            return;
+        }
+        serverStats.noteRequestFail(data);
+    }
+
     /** 获取与服务相关的服务stat*/
     public final IServerStats getServerStats(Server server) {
         IServerStats serverStats = null;

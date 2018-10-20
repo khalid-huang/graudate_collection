@@ -9,10 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.sysu.nameservice.GlobalContext;
 import org.sysu.nameservice.loadbalancer.*;
+import org.sysu.nameservice.loadbalancer.rule.Ouyang.OuYangContext;
 import org.sysu.nameservice.loadbalancer.stats.BaseServerStats;
 import org.sysu.nameservice.loadbalancer.stats.IServerStats;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -24,19 +26,14 @@ public class ActivitiService {
 
     private static final String serviceId = GlobalContext.SERVICEID_ACTIVITISERVICE;
 
-    public ResponseEntity<?> getHelloworld() {
+    public String getHelloworld() throws Exception {
         //主要目标是构建出request就可以了
         String urlWithoutServerInfo = "getHelloworld";
         WorkflowLoadBalancerRequest request = new WorkflowLoadBalancerRequest(false, "GET", urlWithoutServerInfo, null, null, null);
-        try {
-            String responseString = (String) workflowLoadBalancerClient.execute(serviceId, request);
-            return ResponseEntity.status(HttpStatus.OK).body(responseString);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.OK).body(e.toString());
-        }
+        return (String) workflowLoadBalancerClient.execute(serviceId, request);
     }
 
-    public ResponseEntity<?> helloworld(Map<String, Object> data) {
+    public String helloworld(Map<String, Object> data) throws Exception {
         //构建request
         //测试下在data下面放一个variables，variable下面放test，看看Activiti是否可以收到
         String urlWithoutServerInfo = "/hellowold";
@@ -44,45 +41,61 @@ public class ActivitiService {
         Map<String, Object> params = data;
         WorkflowLoadBalancerRequest request = new WorkflowLoadBalancerRequest(false, "POST", urlWithoutServerInfo, headers, params, null);
 
-        try {
-            String responseString =  workflowLoadBalancerClient.execute(serviceId, request);
-            logger.info("helloworld" + responseString);
-            return ResponseEntity.status(HttpStatus.OK).body(responseString);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.OK).body(e.toString());
-        }
+        return workflowLoadBalancerClient.execute(serviceId, request);
     }
 
-    public ResponseEntity<?> startProcess(Map<String, Object> data, String processModelKey) {
+    public String startProcess(Map<String, Object> data, String processModelKey) throws Exception {
         //构建request
         String urlWithoutServerInfo = GlobalContext.URL_ACTIVITISERVICE_STARTPROCESS + "/" + processModelKey;
         Map<String, String> headers = null;
         Map<String, Object> params = data;
         WorkflowLoadBalancerRequest request = new WorkflowLoadBalancerRequest(false, "POST", urlWithoutServerInfo, headers, data, null);
 
-        try {
-            String responseString =  workflowLoadBalancerClient.execute(serviceId, request);
-            logger.info("startProcess: " + responseString);
-            return ResponseEntity.status(HttpStatus.OK).body(responseString);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.OK).body(e.toString());
-        }
+        String responseString =  workflowLoadBalancerClient.execute(serviceId, request);
+        logger.info("startProcess: " + responseString);
+        return responseString;
     }
 
-    public ResponseEntity<?> getCurrentTasks(String processInstanceId) {
-        return null;
+    public String getCurrentTasks(String processInstanceId) throws  Exception {
+        //构建request
+        String urlWithoutServerInfo = GlobalContext.URL_ACTIVITISERVICE_GETCURRENTTASKS + "/" + processInstanceId;
+        Map<String, String> headers = null;
+        Map<String, Object> params = null;
+        WorkflowLoadBalancerRequest workflowLoadBalancerRequest = new WorkflowLoadBalancerRequest(false, "GET", urlWithoutServerInfo, headers, params, null);
+        String responseString = workflowLoadBalancerClient.execute(serviceId, workflowLoadBalancerRequest);
+        return responseString;
     }
 
-    public ResponseEntity<?> getCurrentTasksOfAssignee(String assignee, String processInstanceId) {
-        return null;
+    public String getCurrentTasksOfAssignee(String assignee, String processInstanceId) throws Exception {
+        //构建request
+        String urlWithoutServerInfo = GlobalContext.URL_ACTIVITISERVICE_GETCURRENTTASKSOFASSIGNEE + "/" + processInstanceId;
+        Map<String, String> headers = null;
+        Map<String, Object> params = new HashMap<>();
+        params.put("assignee", assignee);
+        WorkflowLoadBalancerRequest workflowLoadBalancerRequest = new WorkflowLoadBalancerRequest(false, "GET", urlWithoutServerInfo, headers, params, null);
+        String responseString = workflowLoadBalancerClient.execute(serviceId, workflowLoadBalancerRequest);
+        return responseString;
     }
 
-    public ResponseEntity<?> claimTask(Map<String, Object> data, String taskId) {
-        return null;
+    public String claimTask(String assignee, String processInstanceId, String taskId) throws Exception {
+        //构建request
+        String urlWithoutServerInfo = GlobalContext.URL_ACTIVITISERVICE_CLAIMTASK + "/" + processInstanceId + "/" + taskId;
+        Map<String, String> headers = null;
+        Map<String, Object> params = new HashMap<>();
+        params.put("assignee", assignee);
+        WorkflowLoadBalancerRequest workflowLoadBalancerRequest = new WorkflowLoadBalancerRequest(false, "POST", urlWithoutServerInfo, headers, params, null);
+        String responseString = workflowLoadBalancerClient.execute(serviceId, workflowLoadBalancerRequest);
+        return responseString;
     }
 
-    public ResponseEntity<?> completeTask(Map<String, Object> data, String taskId) {
-        return null;
+    public String completeTask(Map<String, Object> data, String processInstanceId, String taskId) throws Exception  {
+        //构建request
+        String urlWithoutServerInfo = GlobalContext.URL_ACTIVITISERVICE_COMPLETETASK + "/" + processInstanceId + "/" + taskId;
+        Map<String, String> headers = null;
+        Map<String, Object> params = data;
+        WorkflowLoadBalancerRequest workflowLoadBalancerRequest = new WorkflowLoadBalancerRequest(false, "POST", urlWithoutServerInfo, headers, params, null);
+        String responseString = workflowLoadBalancerClient.execute(serviceId, workflowLoadBalancerRequest);
+        return responseString;
     }
 
 }

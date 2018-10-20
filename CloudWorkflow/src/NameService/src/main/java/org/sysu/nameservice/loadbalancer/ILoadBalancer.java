@@ -24,6 +24,9 @@ public interface ILoadBalancer {
      */
     public Server chooseServer(Object key);
 
+    /** 用于测试的方式，总返回第一个服务器 */
+    public Server chooseFirstServer(Object key);
+
     /**
      * To be called by the clients of the load balancer to notify that a Server is down
      * else, the LB will think its still Alive until the next Ping cycle - potentially

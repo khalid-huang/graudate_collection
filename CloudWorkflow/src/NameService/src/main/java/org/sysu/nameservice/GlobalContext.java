@@ -6,12 +6,19 @@ package org.sysu.nameservice;
 public class GlobalContext {
     
     public static final String SERVICEID_ACTIVITISERVICE = "activiti-service";
-    
-    
+
+    public static final String ACTION_ACTIVITISERVICE_STARTPROCESS = "startProcess";
+
+    public static final String ACTION_ACTIVITISERVICE_CLAIMTASK = "claimTask";
+
+    public static final String ACTION_ACTIVITISERVICE_COMPLETETASK = "completeTask";
+
+
     /**
      * Service URL for activiti-service start process
      */
     public static final String URL_ACTIVITISERVICE_STARTPROCESS="/startProcess";
+
 
     /**
      * Service URL for activiti-service get current tasks
@@ -31,6 +38,6 @@ public class GlobalContext {
     /**
      * Service URL for activiti-service complete task
      */
-    public static final String UL_ACTIVITISERVICE_COMPLETETASK="/completeTask";
+    public static final String URL_ACTIVITISERVICE_COMPLETETASK="/completeTask";
 
 }

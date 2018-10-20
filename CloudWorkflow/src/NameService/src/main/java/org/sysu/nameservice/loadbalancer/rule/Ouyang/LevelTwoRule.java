@@ -75,7 +75,7 @@ public class LevelTwoRule extends AbstractLoadBalancerRule {
             BusynessIndicatorServerStats ss = (BusynessIndicatorServerStats)  stats.getSingleServerStat(server);
 //            int tempBusyness = ss.getBusynessForLevelOne();
 //            int tempBusyness = ss.getBusynessForLevelTwo();
-            int tempBusyness = ss.getBusynessForLevelTwoWithLimitTime(OuYangContext.levelOnePastTime);
+            int tempBusyness = ss.getBusynessForLevelTwoWithLimitTime(OuYangContext.levelTwoPastTime);
             if(maxBusyness > tempBusyness) {
                 maxBusyness = tempBusyness;
                 result = server;

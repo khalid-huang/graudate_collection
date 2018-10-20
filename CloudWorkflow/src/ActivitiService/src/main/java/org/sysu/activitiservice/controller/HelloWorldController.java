@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Controller
 @RestController
+@SuppressWarnings("unchecked")
 public class HelloWorldController {
 
     private final static Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
@@ -23,11 +24,8 @@ public class HelloWorldController {
     private String serverPort;
 
     @RequestMapping(value = "/helloworld", method = RequestMethod.POST)
-    public ResponseEntity<?> helloworld(@RequestBody(required = false)Map<String, Object> data) {
-        //使用Okhttp发送的情况下；
-        Map<String, Object> variables = JSON.parseObject((String) data.get("variables"), Map.class);
+    public ResponseEntity<?> helloworld(@RequestBody(required = false)Map<String, Object> variables) {
         logger.info((String) variables.get("test"));
-//        logger.info((String)variables.get("test"));
         logger.info("logback test");
         HashMap<String,String> response = new HashMap<>();
         response.put("message", "hello world, my server port is " + serverPort);

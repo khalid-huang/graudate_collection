@@ -1,16 +1,19 @@
 package org.sysu.nameservice.loadbalancer.rule.Ouyang.indicator;
 
+import org.sysu.nameservice.GlobalContext;
 import org.sysu.nameservice.loadbalancer.monitor.BasicCounter;
-import org.sysu.nameservice.loadbalancer.monitor.Monitor;
 import org.sysu.nameservice.loadbalancer.monitor.Monitors;
 import org.sysu.nameservice.loadbalancer.monitor.Slot;
 import org.sysu.nameservice.loadbalancer.stats.distribution.Distribution;
+
+import java.util.Map;
 
 /**
  * busyness indicator算法的时间槽实现
  */
 public class SingleTimeSlot implements Slot {
-    private static final long defaultInterval = 30000;
+    /** 默认的间隔是三秒 */
+    private static final long defaultInterval = 3 * 1000;
     private long interval; //单位为ms;
     private long starTime = getNowTime();
 
@@ -22,7 +25,7 @@ public class SingleTimeSlot implements Slot {
     private Distribution processTimeDist;;
 
     /**the number of work item starts and completions per second*/
-    /** 计算start和completeion的workitem的和 */
+    /** 计算start和completion的workitem的和 */
     private BasicCounter workItems;
 
     /** the number of worker threads currently executing in the engine’s container */
@@ -65,23 +68,30 @@ public class SingleTimeSlot implements Slot {
 
     /** 在响应时进行记录 */
     /** ms : 响应时间，单位是ms*/
-    public void noteRequestCompletion(double rs) {
-        //现在的处理策略是一个请求对应一个task，每个task对应一个工作项的概念；但是往往一个请求可能不只会对应一个task，而是会引起多个task的执行；这种情况下的workItem的统计可能就需要在收到响应的时候由服务器发送消息回来统计了；
+    public void noteRequestCompletion(Map<String,String> data) {
+        double rs = Double.parseDouble(data.get("responseTime"));
+        String action = data.get("action");
+
+        /** 如果是完成工作项的请求，需要进行工作项相关信息记录*/
+        if(action.equals(GlobalContext.ACTION_ACTIVITISERVICE_COMPLETETASK)) {
+            int newWorkItem = Integer.parseInt(data.get("newWorkItem"));
+            int completeWorkItem = 1;
+            this.workItems.increment(newWorkItem + completeWorkItem);
+        }
         this.requestNumber.increment();
         this.processTimeDist.noteValue(rs);
-        this.workItems.increment();
         SingleTimeSlot.executingThreads.decrement();
     }
 
     /**
      * 在请求失败时记录
      */
-    public void noteReqeustFail() {
+    public void noteReqeustFail(Map<String, String> data) {
         SingleTimeSlot.executingThreads.decrement();
     }
 
     /** 在发起请求时进行记录*/
-    public void noteRequestStart() {
+    public void noteRequestStart(Map<String, String> data) {
         this.workItems.increment();
         SingleTimeSlot.executingThreads.increment();
     }
@@ -129,5 +139,15 @@ public class SingleTimeSlot implements Slot {
 
     private static long getNowTime() {
         return System.currentTimeMillis();
+    }
+
+    @Override
+    public String toString() {
+        return "SingleTimeSlot{" +
+                "requestNumber=" + requestNumber +
+                ", processTimeDist=" + processTimeDist +
+                ", workItems=" + workItems +
+                ", executingThreads=" + SingleTimeSlot.executingThreads +
+                '}';
     }
 }

@@ -1,17 +1,23 @@
 package org.sysu.nameservice.loadbalancer;
 
+import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import org.sysu.nameservice.Entity.ProcessInstanceRoutingEntity;
+import org.sysu.nameservice.GlobalContext;
 import org.sysu.nameservice.loadbalancer.rule.IRule;
+import org.sysu.nameservice.loadbalancer.rule.Ouyang.OuYangContext;
 import org.sysu.nameservice.loadbalancer.stats.IServerStats;
 import org.sysu.nameservice.resourceProvider.ServerManager;
+import org.sysu.nameservice.service.ProcessInstanceRoutingService;
 
 import javax.annotation.PostConstruct;
-import java.io.IOException;
 import java.net.URI;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /** 需要负责维护serviceId与loadbalcer的对应关系，每个serviceId都会有一个loadBalacner，每个Loadbalancer都维护了一个服务列表，表示这个服务的服务地址 */
@@ -24,6 +30,9 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
 
     @Autowired
     Environment environment;
+
+    @Autowired
+    ProcessInstanceRoutingService processInstanceRoutingService;
 
     /** 维护serviceId与其loadBalancer*/
     Map<String, ILoadBalancer> serviceIdToLoadBalancer;
@@ -75,12 +84,16 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
     }
 
     @Override
-    public <T> T execute(String serviceId, LoadBalancerRequest<T> request) throws Exception {
-        /** 针对有状态的activiti做的执行方案；需要根据流程实例调度的*/
-//        if(serviceId.equals("activiti-service")) {
-//            return executeActivitiService(request);
-//        }
-        /** 正常的无状态的服务的执行方案*/
+    public String execute(String serviceId, LoadBalancerRequest request) throws Exception {
+        /** 针对特定的服务做的调度方案 */
+        //activiti-service这种有状态的调度方案；这里主要的不同在于它不是根据请求来确定调度到的服务器，而是根据之前的请求情况，通过它的流程实例确定的服务器，所以需要单独处理下
+        if(serviceId.equals("activiti-service")) {
+            return executeActivitiService(request);
+        }
+
+        //其他服务的调度方案
+
+        /**通用的无状态的服务的执行方案*/
         ILoadBalancer loadBalancer = getLoaBalancer(serviceId);
         Server server = getServer(loadBalancer);
         /** 调试信息 */
@@ -88,7 +101,7 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
         /** end */
 
         if(server == null) {
-            throw new IllegalStateException("No instance avaialbe for " + serviceId);
+            throw new IllegalStateException("No instance  for " + serviceId);
         }
         WorkflowServer workflowServer = new WorkflowServer(serviceId, server);
 
@@ -96,13 +109,65 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
     }
 
 
-    public <T> T executeActivitiService(LoadBalancerRequest<T> request) {
-        return null;
+
+    @SuppressWarnings("unchecked")
+    public String executeActivitiService(LoadBalancerRequest request) throws Exception {
+        WorkflowLoadBalancerRequest workflowLoadBalancerRequest = (WorkflowLoadBalancerRequest) request;
+
+
+        Server server = null;
+        /** 针对函数函数的处理方式 */
+        if(workflowLoadBalancerRequest.getAction().equals("TEST")) {
+            server = getFirstServer(getLoaBalancer(GlobalContext.SERVICEID_ACTIVITISERVICE));
+            WorkflowServer workflowServer = new WorkflowServer(GlobalContext.SERVICEID_ACTIVITISERVICE, server);
+            return execute(GlobalContext.SERVICEID_ACTIVITISERVICE, workflowServer, request);
+        }
+
+
+        /** 进行流程实例调度 */
+        //新建一个映射对象
+        ProcessInstanceRoutingEntity pire;
+
+        if(workflowLoadBalancerRequest.getAction().equals(GlobalContext.ACTION_ACTIVITISERVICE_STARTPROCESS)) {
+           /** 新流程实例 */
+           ILoadBalancer loadBalancer = getLoaBalancer(GlobalContext.SERVICEID_ACTIVITISERVICE);
+           server = getServer(loadBalancer);
+           //实例化映射对象
+            pire = new ProcessInstanceRoutingEntity();
+            pire.setStartTime(new Timestamp(new Date().getTime()));
+            pire.setProcessModelKey(workflowLoadBalancerRequest.getValue("processModelKey"));
+            pire.setServerStr(server.getId());
+
+        } else {
+            /** 从数据库中获取引导哪里去；这里其实是要引入缓存的(缓存应该实现在持久层上，不应该实现在逻辑层这里)；先简单实现 */
+            pire = processInstanceRoutingService.findById(Long.parseLong(workflowLoadBalancerRequest.getProcessInstanceRoutingId()));
+            server = new Server(pire.getServerStr());
+
+        }
+        if(server == null) {
+            throw new IllegalStateException("No instance available for " + GlobalContext.SERVICEID_ACTIVITISERVICE);
+        }
+        WorkflowServer workflowServer = new WorkflowServer(GlobalContext.SERVICEID_ACTIVITISERVICE, server);
+
+        String response =  execute(GlobalContext.SERVICEID_ACTIVITISERVICE, workflowServer, request);
+        /** 做数据更新 */
+        Map<String, String> responseMap = JSON.parseObject(response, Map.class);
+        /** 如果流程完成，记录完成时间；如果流程刚启动，记录流程ID*/
+        if(workflowLoadBalancerRequest.getAction().equals(GlobalContext.ACTION_ACTIVITISERVICE_COMPLETETASK)) {
+            if(responseMap.get("isEneded").equals("1")) {
+                pire.setFinishTime(new Timestamp(new Date().getTime()));
+            }
+        } else if(workflowLoadBalancerRequest.getAction().equals(GlobalContext.ACTION_ACTIVITISERVICE_STARTPROCESS)) {
+            pire.setActivitiProcessInstanceId(responseMap.get("processInstanceId"));
+        }
+        //更新或是持久化
+        processInstanceRoutingService.saveOrUpdate(pire);
+
+        return response;
     }
 
-    //同步访问
     @Override
-    public <T> T execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest<T> request) throws Exception {
+    public String execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest request) throws Exception {
         Server server = null;
         if(serviceInstance instanceof WorkflowServer) {
             server = ((WorkflowServer)serviceInstance).getServer();
@@ -110,36 +175,42 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
         if(server == null) {
             throw new IllegalStateException("No instances available for " + serviceId);
         }
-        //后面用数据统计的时候需要去仿照RibbonStatsRecorder来保存数据；先把整体逻辑实现，再看这个信息统计的实现
-
         WorkflowBalancerContext context = new WorkflowBalancerContext(getLoaBalancer(serviceId));
-        /** 根据不同的调度策略来生成不同的stats类型*/
+        /** 根据不同的调度策略来生成不同的stats类型; 如果是之前已经存在的，这个WorkflowStatsRecorder只是一个辅助类，用来获取保存在LoadBalancer里面的stats*/
         WorkflowStatsRecorder statsRecorder = new WorkflowStatsRecorder(context, server);
-        T returnVal = null;
+        /** 进行请求时数据统计 */
+        Map<String, Object> requstStartData = new HashMap<>();
+        statsRecorder.recordRequestStartStarts(requstStartData);
+
+        String returnVal = null;
         try {
             returnVal = request.apply(serviceInstance);
             //访问成功的数据统计；构建需要的Map对象；一般的调度是不是需要的，所以就传入一个空的就可以了
             Map<String,Object> data = new HashMap<>();
-            data.putIfAbsent("response", returnVal);
-            statsRecorder.recordStats(data);
+            data.put("request", request);
+            data.put("response", returnVal);
+            data.put("status", "success");
+            //直接传入request和response，如何处理交由特定的ServerStats处理就可以了
+            statsRecorder.recordRequestCompelteStats(data);
         } catch (Exception ex) {
+            Map<String,Object> data = new HashMap<>();
+            data.put("status", "fail");
+            statsRecorder.recordRequestCompelteStats(data);
+
             //数据统计
         }
+
         /** 打印调试信息 */
         BaseLoadBalancer baseLoadBalancer = (BaseLoadBalancer) getLoaBalancer(serviceId);
         //打印stats信息
         LoadBalancerStats loadBalancerStats = baseLoadBalancer.getLoadBalancerStats();
         IServerStats serverStats = loadBalancerStats.getSingleServerStat(server);
         System.out.println(serverStats.toString());
-        logger.info(serverStats.toString());
-
         /** end */
 
         return returnVal;
 
     }
-
-
 
     @Override
     public URI reconstructURI(ServiceInstance instance, URI original) {
@@ -166,9 +237,19 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
         return loadBalancer.chooseServer("default");
     }
 
+    /**
+     * 用于测试的方式，用于第一个server
+     * @param loadBalancer
+     * @return
+     */
+    protected Server getFirstServer(ILoadBalancer loadBalancer) {
+        if(loadBalancer == null) {
+            return null;
+        }
+        return loadBalancer.chooseFirstServer("default");
+    }
+
     public ILoadBalancer getLoaBalancer(String serviceId) {
-        //这里先只有BaseLoadBalancer；BaseLoadBalancer是默认
-        //后期如果需要扩展的话，可以使用反射来生成
         return serviceIdToLoadBalancer.get(serviceId);
     }
 

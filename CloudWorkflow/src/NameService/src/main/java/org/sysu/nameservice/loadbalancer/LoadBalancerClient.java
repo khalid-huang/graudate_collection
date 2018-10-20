@@ -12,7 +12,7 @@ public interface LoadBalancerClient extends ServiceInstanceChooser {
      * @return the result of the LoadBalancerRequest callback on the selected ServiceInstance
      * @throws Exception
      */
-    <T> T execute(String serviceId, LoadBalancerRequest<T> request) throws Exception;
+    String execute(String serviceId, LoadBalancerRequest request) throws Exception;
 
 
     /**
@@ -25,7 +25,7 @@ public interface LoadBalancerClient extends ServiceInstanceChooser {
      * @return the result of the LoadBalancerRequest callback on the selected
      * ServiceInstance
      */
-    <T> T execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest<T> request) throws Exception;
+    String execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest request) throws Exception;
 
 
     /**
