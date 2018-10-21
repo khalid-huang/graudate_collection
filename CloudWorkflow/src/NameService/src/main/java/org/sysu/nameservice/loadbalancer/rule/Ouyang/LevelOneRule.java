@@ -7,7 +7,7 @@ import org.sysu.nameservice.loadbalancer.ILoadBalancer;
 import org.sysu.nameservice.loadbalancer.LoadBalancerStats;
 import org.sysu.nameservice.loadbalancer.Server;
 import org.sysu.nameservice.loadbalancer.rule.AbstractLoadBalancerRule;
-import org.sysu.nameservice.loadbalancer.stats.BusynessIndicatorServerStats;
+import org.sysu.nameservice.loadbalancer.stats.busynessIndicator.BusynessIndicatorForLevelOneServerStats;
 
 import java.util.List;
 
@@ -76,8 +76,8 @@ public class LevelOneRule extends AbstractLoadBalancerRule {
         Server result = null;
         int minBusyness = Integer.MAX_VALUE;
         for(Server server : reachableServer) {
-            BusynessIndicatorServerStats ss = (BusynessIndicatorServerStats)  stats.getSingleServerStat(server);
-            int tempBusyness = ss.getBusynessForLevelOne();
+            BusynessIndicatorForLevelOneServerStats ss = (BusynessIndicatorForLevelOneServerStats)  stats.getSingleServerStat(server);
+            int tempBusyness = ss.getBusyness();
             if(minBusyness > tempBusyness) {
                 minBusyness = tempBusyness;
                 result = server;
@@ -88,12 +88,12 @@ public class LevelOneRule extends AbstractLoadBalancerRule {
 
     @Override
     public Server choose(Object key) {
-        return null;
+        return choose(getLoadBalancer(), key);
     }
 
 
     @Override
     public String getStatsClassName() {
-        return "BusynessIndicatorServerStats";
+        return "busynessIndicator.BusynessIndicatorForLevelOneServerStats";
     }
 }

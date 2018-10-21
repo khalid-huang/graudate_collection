@@ -7,6 +7,7 @@ import org.sysu.nameservice.loadbalancer.monitor.Slot;
 import org.sysu.nameservice.loadbalancer.stats.distribution.Distribution;
 
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * busyness indicator算法的时间槽实现
@@ -97,12 +98,21 @@ public class SingleTimeSlot implements Slot {
     }
 
     /**
-     * 计算每秒的请求数量
+     * 计算满时间下每秒的请求数量（也就是整个时间槽已经用完）
+     * 记信interval是一个ms级别的
      * @return
      */
     public long getRequestNumber() {
-        Long number = (Long) this.requestNumber.getValue();
-        return number.longValue() / interval;
+        double number = 1.0 * (Long) this.requestNumber.getValue();
+        long tempInterval = System.currentTimeMillis() - starTime;
+
+        if(tempInterval > interval) {
+            //表示该时间槽已经用完了，是过去的
+            return (long)(number / interval * 1000);
+        } else {
+            //表示是当前时间槽，用目前已经用的时间去除就可以了；
+            return (long)(number / tempInterval * 1000);
+        }
     }
 
     /**
@@ -118,8 +128,16 @@ public class SingleTimeSlot implements Slot {
      * @return
      */
     public long getWorkItems() {
-        Long number = (Long) this.workItems.getValue();
-        return number.longValue() / interval;
+        double number = 1.0 * (Long) this.workItems.getValue();
+        long tempInterval = System.currentTimeMillis() - starTime;
+
+        if(tempInterval > interval) {
+            //表示该时间槽已经用完了，是过去的
+            return (long)(number / interval * 1000);
+        } else {
+            //表示是当前时间槽，用目前已经用的时间去除就可以了；
+            return (long)(number / tempInterval * 1000);
+        }
     }
 
     /**
@@ -127,8 +145,16 @@ public class SingleTimeSlot implements Slot {
      * @return
      */
     public long getExecutingThreads() {
-        Long number = (Long) SingleTimeSlot.executingThreads.getValue();
-        return number.longValue();
+        double number = 1.0 * (Long) SingleTimeSlot.executingThreads.getValue();
+        long tempInterval = System.currentTimeMillis() - starTime;
+
+        if(tempInterval > interval) {
+            //表示该时间槽已经用完了，是过去的
+            return (long)(number / interval * 1000);
+        } else {
+            //表示是当前时间槽，用目前已经用的时间去除就可以了；
+            return (long)(number / tempInterval * 1000);
+        }
     }
 
 

@@ -1,5 +1,6 @@
 package org.sysu.nameservice.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class ActivitiController {
         if(missingParams.size() > 0) {
             response.put("status", "fail");
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(JSON.toJSONString(response));
         }
         try {
             String responseString = activitiService.startProcess(data, processModelKey);
@@ -41,10 +42,45 @@ public class ActivitiController {
             response.put("status", "fail");
             response.put("message", e.toString());
         }
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(JSON.toJSONString(response));
     }
 
+    /**
+     *
+     * @param processInstanceId 这里要注意这个processInstanceId是对于Nameservice的processInstanceID，而不是引擎真实的processInstanceId；
+     * @return
+     */
+    @RequestMapping(value = "getCurrentSingleTask/{processInstanceId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getCurrentSingleTask(@PathVariable(value = "processInstanceId", required = false) String processInstanceId) {
+        HashMap<String,String> response = new HashMap<>();
 
+        //参数检查
+        ArrayList<String> missingParams = new ArrayList<>();
+        if(processInstanceId == null) missingParams.add(" processInstanceId");
+        if(missingParams.size() > 0) {
+            response.put("status", "fail");
+            response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(JSON.toJSONString(response));
+        }
+
+        try {
+            String responseString = activitiService.getCurrentSingleTask(processInstanceId);
+            response.put("status", "success");
+            response.put("response", responseString);
+        } catch (Exception e) {
+            response.put("status", "fail");
+            response.put("message", e.toString());
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(JSON.toJSONString(response));
+
+    }
+
+    /**
+     *
+     * @param processInstanceId 这里要注意这个processInstanceId是对于Nameservice的processInstanceID，而不是引擎真实的processInstanceId；
+     * @return
+     */
     @RequestMapping(value = "getCurrentTasks/{processInstanceId}", method = RequestMethod.GET)
     public ResponseEntity<?> getCurrentTasks(@PathVariable(value = "processInstanceId", required = false) String processInstanceId) {
         HashMap<String,String> response = new HashMap<>();
@@ -55,7 +91,7 @@ public class ActivitiController {
         if(missingParams.size() > 0) {
             response.put("status", "fail");
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(JSON.toJSONString(response));
         }
 
         try {
@@ -67,13 +103,14 @@ public class ActivitiController {
             response.put("message", e.toString());
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(JSON.toJSONString(response));
 
     }
 
     @RequestMapping(value = "getCurrentTasksOfAssignee/{processInstanceId}", method = RequestMethod.GET)
     public ResponseEntity<?> getCurrentTasksOfAssignee(@RequestParam(value = "assignee", required = false) String assignee,
                                                        @PathVariable(value = "processInstanceId", required = false) String processInstanceId) {
+        System.out.println("getCurrenTasksOfAssignee: " + assignee);
         HashMap<String, String> response = new HashMap<>();
 
         //校验参数
@@ -83,7 +120,7 @@ public class ActivitiController {
         if(missingParams.size() > 0) {
             response.put("status", "fail");
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(JSON.toJSONString(response));
         }
         try {
             String responseString = activitiService.getCurrentTasksOfAssignee(assignee, processInstanceId);
@@ -93,55 +130,60 @@ public class ActivitiController {
             response.put("status", "fail");
             response.put("message", e.toString());
         }
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(JSON.toJSONString(response));
     }
 
-    @RequestMapping(value = "claimTask/{taskId}", method = RequestMethod.POST)
+    @RequestMapping(value = "claimTask/{processInstanceId}/{taskId}", method = RequestMethod.POST)
     public ResponseEntity<?> claimTask(@RequestBody(required = false) Map<String, Object> data,
+                                       @PathVariable(value = "processInstanceId", required = false) String processInstanceId,
                                        @PathVariable(value = "taskId", required = false) String taskId) {
         HashMap<String, String> response = new HashMap<>();
         //参数校验
         ArrayList<String> missingParams = new ArrayList<>();
         if(taskId == null) missingParams.add("taskId");
+        if(processInstanceId == null) missingParams.add("processInstanceId");
         if(data == null) missingParams.add("data");
         if(missingParams.size() > 0) {
             response.put("status", "fail");
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(JSON.toJSONString(response));
         }
         try {
-            String responseString = activitiService.claimTask(data, taskId);
+            String responseString = activitiService.claimTask((String)data.get("assignee"), processInstanceId, taskId);
             response.put("status", "success");
             response.put("response", responseString);
         } catch (Exception e) {
             response.put("status", "fail");
             response.put("message", e.toString());
         }
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(JSON.toJSONString(response));
     }
 
-    @RequestMapping(value = "completeTask/{taskId}", method = RequestMethod.POST)
-    public ResponseEntity<?> completeTask(@RequestBody(required = false) Map<String, Object> data, @PathVariable(value = "taskId", required = false) String taskId) {
+    @RequestMapping(value = "completeTask/{processInstanceId}/{taskId}", method = RequestMethod.POST)
+    public ResponseEntity<?> completeTask(@RequestBody(required = false) Map<String, Object> data,
+                                          @PathVariable(value = "processInstanceId", required = false) String processInstanceId,
+                                          @PathVariable(value = "taskId", required = false) String taskId) {
         HashMap<String, String> response = new HashMap<>();
 
         //校验参数
         ArrayList<String> missingParams = new ArrayList<>();
-        if(data == null) missingParams.add("daa");
+        if(data == null) missingParams.add("data");
         if(taskId == null) missingParams.add("taskId");
+        if(processInstanceId == null) missingParams.add("processInstanceId");
         if(missingParams.size() > 0) {
             response.put("status", "fail");
             response.put("message", "required parameters missing: " + CommonUtil.ArrayList2String(missingParams, " "));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(JSON.toJSONString(response));
         }
         try {
-            String responseString = activitiService.completeTask(data,taskId);
+            String responseString = activitiService.completeTask(data, processInstanceId, taskId);
             response.put("status", "success");
             response.put("response", responseString);
         } catch (Exception e) {
             response.put("status", "fail");
             response.put("message", e.toString());
         }
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(JSON.toJSONString(response));
     }
 
 }

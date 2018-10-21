@@ -116,7 +116,7 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
 
 
         Server server = null;
-        /** 针对函数函数的处理方式 */
+        /** 针对测试函数的处理方式 */
         if(workflowLoadBalancerRequest.getAction().equals("TEST")) {
             server = getFirstServer(getLoaBalancer(GlobalContext.SERVICEID_ACTIVITISERVICE));
             WorkflowServer workflowServer = new WorkflowServer(GlobalContext.SERVICEID_ACTIVITISERVICE, server);
@@ -139,14 +139,20 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
             pire.setServerStr(server.getId());
 
         } else {
-            /** 从数据库中获取引导哪里去；这里其实是要引入缓存的(缓存应该实现在持久层上，不应该实现在逻辑层这里)；先简单实现 */
-            pire = processInstanceRoutingService.findById(Long.parseLong(workflowLoadBalancerRequest.getProcessInstanceRoutingId()));
+            /** 从数据库中获取引导哪里去；这里其实是要引入缓存的(缓存应该实现在持久层上，不应该实现在逻辑层这里)；先简单实现, */
+            /** 这里还需要将processInstanceId替换成相应的引擎的真实的id； */
+            pire = processInstanceRoutingService.findById(Long.parseLong(workflowLoadBalancerRequest.getValue("processInstanceId")));
+
             server = new Server(pire.getServerStr());
+            workflowLoadBalancerRequest.setKeyValue("processInstanceId", pire.getActivitiProcessInstanceId());
 
         }
         if(server == null) {
             throw new IllegalStateException("No instance available for " + GlobalContext.SERVICEID_ACTIVITISERVICE);
         }
+
+        System.out.println("所选择的服务器" + server.getId());
+
         WorkflowServer workflowServer = new WorkflowServer(GlobalContext.SERVICEID_ACTIVITISERVICE, server);
 
         String response =  execute(GlobalContext.SERVICEID_ACTIVITISERVICE, workflowServer, request);
@@ -154,14 +160,19 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
         Map<String, String> responseMap = JSON.parseObject(response, Map.class);
         /** 如果流程完成，记录完成时间；如果流程刚启动，记录流程ID*/
         if(workflowLoadBalancerRequest.getAction().equals(GlobalContext.ACTION_ACTIVITISERVICE_COMPLETETASK)) {
-            if(responseMap.get("isEneded").equals("1")) {
+            if(responseMap.get("isEnded").equals("1")) {
+                //更新数据
                 pire.setFinishTime(new Timestamp(new Date().getTime()));
+                processInstanceRoutingService.saveOrUpdate(pire);
             }
         } else if(workflowLoadBalancerRequest.getAction().equals(GlobalContext.ACTION_ACTIVITISERVICE_STARTPROCESS)) {
             pire.setActivitiProcessInstanceId(responseMap.get("processInstanceId"));
+            //进行持久化
+            pire = processInstanceRoutingService.saveOrUpdate(pire);
+            //这里要注意返回给前端的ProcessInstanceId应该是nameService的processInstanceRouting的id；而不是真实的引擎的processInstanceId;
+            responseMap.put("processInstanceId", String.valueOf(pire.getId()));
+            response = JSON.toJSONString(responseMap);
         }
-        //更新或是持久化
-        processInstanceRoutingService.saveOrUpdate(pire);
 
         return response;
     }
@@ -196,7 +207,6 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
             Map<String,Object> data = new HashMap<>();
             data.put("status", "fail");
             statsRecorder.recordRequestCompelteStats(data);
-
             //数据统计
         }
 

@@ -3,6 +3,7 @@ package org.sysu.nameservice.interactionRouter;
 
 import com.alibaba.fastjson.JSON;
 import okhttp3.*;
+import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,8 +32,16 @@ public class   OkHttpClientRouter implements IIteractionRouter {
     }
 
     /** 同步 get */
-    public Response syncGet(String url, Map<String, String> headers) {
-        Request.Builder requestBuilder = new Request.Builder().url(url);
+    public Response syncGet(String url, Map<String, String> headers, Map<String, Object> params) {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
+        /** 添加请求参数*/
+        if(params != null) {
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
+                urlBuilder.addQueryParameter(entry.getKey(), (String) entry.getValue());
+            }
+        }
+
+        Request.Builder requestBuilder = new Request.Builder().url(urlBuilder.build());
 
         if(headers != null) {
             headers.forEach((key,value) -> {
@@ -49,10 +58,21 @@ public class   OkHttpClientRouter implements IIteractionRouter {
     }
 
     /** 异步 get */
-    public void asyncGet(String url, Map<String, String> headers, OkHttpCallback callback) {
-        Request.Builder requestBuilder = new Request.Builder().url(url);
-        for(Map.Entry<String, String> entry : headers.entrySet()) {
-            requestBuilder.addHeader(entry.getKey(), entry.getValue());
+    public void asyncGet(String url, Map<String, String> headers, Map<String, Object> params, OkHttpCallback callback) {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
+        /** 添加请求参数*/
+        if(params != null) {
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
+                urlBuilder.addQueryParameter(entry.getKey(), (String) entry.getValue());
+            }
+        }
+
+        Request.Builder requestBuilder = new Request.Builder().url(urlBuilder.build());
+
+        if(headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                requestBuilder.addHeader(entry.getKey(), entry.getValue());
+            }
         }
         okHttpClient.newCall(requestBuilder.build()).enqueue(new Callback() {
             @Override

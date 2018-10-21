@@ -31,13 +31,18 @@ public class ActivitiService {
     }
 
     /** 根据流程实例获取当前任务列表 */
-    public List<Task> getCurrentTask(String processInstancedId) {
+    public List<Task> getCurrentTasks(String processInstancedId) {
         return taskService.createTaskQuery().processInstanceId(processInstancedId).list();
     }
 
     /**根据流程实例和配置人，获取配置人的任务列表*/
-    public List<Task> getCurrentTask(String processInstancedId, String assignee) {
+    public List<Task> getCurrentTasks(String processInstancedId, String assignee) {
         return taskService.createTaskQuery().processInstanceId(processInstancedId).taskAssignee(assignee).list();
+    }
+
+    /** 根据流程实例获取当前可执行的任务 */
+    public Task getCurrentSingleTask(String processInstanceId) {
+        return taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
     }
 
     /** 认领任务 */
@@ -54,9 +59,9 @@ public class ActivitiService {
      */
     public Map<String, String> completeTask(String processInstanceId,String taskId, Map<String, Object> variables) {
         Map<String, String> result = new HashMap<>();
-        int beforeCompleteTaskNumber = getCurrentTask(processInstanceId).size();
+        int beforeCompleteTaskNumber = getCurrentTasks(processInstanceId).size();
         taskService.complete(taskId, variables);
-        int afterCompleteTaskNumber = getCurrentTask(processInstanceId).size();
+        int afterCompleteTaskNumber = getCurrentTasks(processInstanceId).size();
         result.put("newWorkItemNumber", String.valueOf(afterCompleteTaskNumber - (beforeCompleteTaskNumber - 1))); //beforeCompleteTaskNumber需要减少完成的任务；
         return result;
 
@@ -72,7 +77,8 @@ public class ActivitiService {
         if(processInstance != null) {
             return processInstance.isEnded();
         }
-        return false;
+        //如果已经没有这个流程实例了，表示已经执行完成了
+        return true;
     }
 
 

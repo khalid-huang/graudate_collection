@@ -1,5 +1,6 @@
 package org.sysu.nameservice.loadbalancer.monitor;
 
+import javax.transaction.Synchronization;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class BasicCounter extends AbstractMonitor<Number> implements Counter {
@@ -22,12 +23,20 @@ public class BasicCounter extends AbstractMonitor<Number> implements Counter {
 
     @Override
     public void decrement() {
-        count.decrementAndGet();
+        synchronized ( this) {
+            if (count.decrementAndGet() < 0) {
+                count.set(0L);
+            }
+        }
     }
 
     @Override
     public void decrement(long amount) {
-        count.getAndAdd(-amount);
+        synchronized (this) {
+            if(count.getAndAdd(-amount) < 0 ) {
+                count.set(0L);
+            }
+        }
     }
 
     @Override

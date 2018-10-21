@@ -29,40 +29,18 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest {
     /** 请求参数 */
     private Map<String, Object> params;
 
-    /** 请求url，没有带http://localhost:10089，也就是没有协议头，没有host，没有port*/
-    /** 要求以/开头*/
-    private String urlWithoutServerInfo;
+    /** 保持一些附带的执行信息，比如processInstanceRoutingId，processModelKey, url信息等， 用于组装起一个URL*/
+    private Map<String, String> info; //用map而不直接用string来表示url是为了方便在最终发送请求之前可以方便修改url的信息
 
-    /** 保持一些附带的执行信息，比如processInstanceRoutingId，processModelKey等*/
-    private Map<String, String> info;
-
-    private String processInstanceRoutingId;
-
-    /**针对异步POST */
-    public WorkflowLoadBalancerRequest(boolean isAsync, String method, String urlWithoutServerInfo, Map<String, String> headers, Map<String, Object> params, OkHttpCallback callback) {
+    public WorkflowLoadBalancerRequest(boolean isAsync, String method, Map<String, String> info, Map<String, String> headers, Map<String, Object> params, OkHttpCallback callback) {
         this.isAsync = isAsync;
         this.callback = callback;
         this.method = method;
         this.headers = headers;
         this.params = params;
-        this.urlWithoutServerInfo = urlWithoutServerInfo;
-        info = new HashMap<>();
+        this.info = info;
     }
 
-    /** 针对同步GET */
-    public WorkflowLoadBalancerRequest(boolean isAsync, String method, String urlWithoutServerInfo, Map<String, String> headers) {
-        this(isAsync, method, urlWithoutServerInfo, headers, null, null);
-    }
-
-    /** 针对异步GET*/
-    public WorkflowLoadBalancerRequest(boolean isAsync, String method, String urlWithoutServerInfo, Map<String, String> headers, OkHttpCallback callback) {
-        this(isAsync, method, urlWithoutServerInfo,headers, null ,callback);
-    }
-
-    /**针对同步POST*/
-    public WorkflowLoadBalancerRequest(boolean isAsync, String method, String urlWithoutServerInfo, Map<String, String> headers, Map<String, Object> params) {
-        this(isAsync, method, urlWithoutServerInfo, headers, params, null);
-    }
 
     /** 设置一次额外的信息，比如processModelKey等*/
     public void setKeyValue(String key, String value) {
@@ -76,9 +54,26 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest {
 
     @Override
     public String apply(ServiceInstance instance) throws Exception {
-        String url = instance.getUri() +"/"+ urlWithoutServerInfo;
+        String url = "" + instance.getUri();
+
+        //组装url
+        String action = info.get("action");
+        if(action.equals(GlobalContext.ACTION_ACTIVITISERVICE_STARTPROCESS)) {
+            url += "/" + info.get("url") + "/" + info.get("processModelKey");
+        } else if(action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTSINGLETASK)
+                || action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTTASKS)
+                || action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTSINGLETASK)
+                || action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTTASKSOFASSIGNEE)) {
+            url += "/" + info.get("url") + "/" + info.get("processInstanceId");
+        } else if(action.equals(GlobalContext.ACTION_ACTIVITISERVICE_COMPLETETASK)
+                || action.equals(GlobalContext.ACTION_ACTIVITISERVICE_CLAIMTASK)) {
+            url += "/" + info.get("url") + "/" + info.get("processInstanceId") + "/" + info.get("taskId");
+        } else {
+            url += "/" + info.get("url");
+        }
+
         if(!isAsync && method.equals("GET")) {
-            Response response = okHttpClientRouter.syncGet(url, headers);
+            Response response = okHttpClientRouter.syncGet(url, headers, params);
             return response.body().string();
         }
         if(!isAsync && method.equals("POST")) {
@@ -87,7 +82,7 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest {
         }
         /** 异步 */
         if(isAsync && method.equals("GET")) {
-            okHttpClientRouter.asyncGet(url, headers, callback);
+            okHttpClientRouter.asyncGet(url, headers, params, callback);
             return null;
         }
         if(isAsync && method.equals("POST")) {
@@ -101,23 +96,7 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest {
      * @return
      */
     public String getAction() {
-        if(urlWithoutServerInfo.startsWith(GlobalContext.URL_ACTIVITISERVICE_STARTPROCESS)) {
-            return GlobalContext.ACTION_ACTIVITISERVICE_STARTPROCESS;
-        }
-        if(urlWithoutServerInfo.startsWith(GlobalContext.URL_ACTIVITISERVICE_CLAIMTASK)) {
-            return GlobalContext.ACTION_ACTIVITISERVICE_CLAIMTASK;
-        }
-        if(urlWithoutServerInfo.startsWith(GlobalContext.URL_ACTIVITISERVICE_COMPLETETASK)) {
-            return GlobalContext.ACTION_ACTIVITISERVICE_COMPLETETASK;
-        }
-        return "TEST";
+        return info.get("action");
     }
 
-    public String getProcessInstanceRoutingId() {
-        return processInstanceRoutingId;
-    }
-
-    public void setProcessInstanceRoutingId(String processInstanceRoutingId) {
-        this.processInstanceRoutingId = processInstanceRoutingId;
-    }
 }

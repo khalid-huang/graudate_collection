@@ -34,6 +34,8 @@ public class RandomRule extends AbstractLoadBalancerRule {
 
             int index = rand.nextInt(serverCount);
             server = upList.get(index);
+            System.out.println("RanmdomRule: upSize = " + upList.size() + " " + "allSize = " + serverCount);
+            System.out.println("index: " + index);
             if(server == null) {
                 /*
                  * The only time this should happen is if the server list were

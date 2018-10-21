@@ -9,9 +9,20 @@ public class GlobalContext {
 
     public static final String ACTION_ACTIVITISERVICE_STARTPROCESS = "startProcess";
 
+    public static final String ACTION_ACTIVITISERVICE_TEST = "test";
+
     public static final String ACTION_ACTIVITISERVICE_CLAIMTASK = "claimTask";
 
     public static final String ACTION_ACTIVITISERVICE_COMPLETETASK = "completeTask";
+
+    public static final String ACTION_ACTIVITISERVICE_GETCURRENTSINGLETASK = "getCurrentSingleTask";
+
+    public static final String ACTION_ACTIVITISERVICE_GETCURRENTTASKS = "getCurrentTasks";
+
+    public static final String ACTION_ACTIVITISERVICE_GETCURRENTTASKSOFASSIGNEE = "getCurrentTasksOfAssignee";
+
+    /**用于保持busynessIndicator算法的busyness的目录地址；在MultiplePastTimeSlot中写入信息 */
+    public static final String ACTIVITISERVICE_BUSYNESS_DIRECTORY = "E:\\workspace\\cloud_workflow\\busynessDirectory";
 
 
     /**
@@ -24,6 +35,8 @@ public class GlobalContext {
      * Service URL for activiti-service get current tasks
      */
     public static final String URL_ACTIVITISERVICE_GETCURRENTTASKS="/getCurrentTasks";
+
+    public static final String URL_ACTIVITISERVICE_GETCURRENTSINGLETASK="/getCurrentSingleTask";
 
     /**
      * Service URL for activiti-service get one assignee's current tasks of one processinstance

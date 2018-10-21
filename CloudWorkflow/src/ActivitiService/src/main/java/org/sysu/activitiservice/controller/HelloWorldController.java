@@ -24,7 +24,7 @@ public class HelloWorldController {
     private String serverPort;
 
     @RequestMapping(value = "/helloworld", method = RequestMethod.POST)
-    public ResponseEntity<?> helloworld(@RequestBody(required = false)Map<String, Object> variables) {
+    public ResponseEntity<?> helloworld(@RequestParam(required = false)Map<String, Object> variables) {
         logger.info((String) variables.get("test"));
         logger.info("logback test");
         HashMap<String,String> response = new HashMap<>();

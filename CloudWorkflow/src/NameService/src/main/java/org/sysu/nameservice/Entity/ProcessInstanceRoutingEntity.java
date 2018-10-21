@@ -35,7 +35,7 @@ public class ProcessInstanceRoutingEntity {
         this.id = id;
     }
 
-    public String getProcessInstanceId() {
+    public String getActivitiProcessInstanceId() {
         return activitiProcessInstanceId;
     }
 
