@@ -6,6 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/CloudWorkflow.iml" filepath="$PROJECT_DIR$/CloudWorkflow.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/EurekaService/EurekaService.iml" filepath="$PROJECT_DIR$/src/EurekaService/EurekaService.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/NameService/NameService.iml" filepath="$PROJECT_DIR$/src/NameService/NameService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/ActivitiService/activiti-service.iml" filepath="$PROJECT_DIR$/src/ActivitiService/activiti-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/EurekaService/eureka-service.iml" filepath="$PROJECT_DIR$/src/EurekaService/eureka-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/NameService/name-service.iml" filepath="$PROJECT_DIR$/src/NameService/name-service.iml" />
     </modules>
   </component>
 </project>
