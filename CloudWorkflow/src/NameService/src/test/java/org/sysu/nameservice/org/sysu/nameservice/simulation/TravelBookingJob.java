@@ -32,9 +32,14 @@ public class TravelBookingJob implements Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         //随机产生流程路径
         String traveler = "Mike";
-        String hotel = String.valueOf(random.nextInt(2));
-        String flight = String.valueOf(random.nextInt(2));
-        String car = String.valueOf(random.nextInt(2));
+        String hotel = "0";
+        String flight = "0";
+        String car = "0";
+        while (hotel.equals("0") && flight.equals("0") && car.equals("0")) {
+            hotel = String.valueOf(random.nextInt(2));
+            flight = String.valueOf(random.nextInt(2));
+            car = String.valueOf(random.nextInt(2));
+        }
         ActivitiService activitiService = (ActivitiService) context.getJobDetail().getJobDataMap().get("service");
         try {
             simulationTravelBooking(traveler, hotel, flight, car, activitiService);

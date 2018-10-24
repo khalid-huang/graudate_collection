@@ -1,4 +1,4 @@
-package org.sysu.nameservice.controller;
+package org.sysu.nameservice.Controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
