@@ -1,10 +1,12 @@
 package org.sysu.activitiservice;
 
 
+import net.sourceforge.sizeof.SizeOf;
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
+import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.junit.Test;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.lang.instrument.Instrumentation;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,31 +46,50 @@ public class ActivitiServiceApplicationTests {
         //验证是否有加载到processes下面的流程文件
         long count = repositoryService.createProcessDefinitionQuery().count();
         System.out.println(count);
-//
-//        //启动流程leave
-//        Map<String, Object> variables = new HashMap<String, Object>();
-//        variables.put("apply", "zhangsan");
-//        variables.put("approve", "lisi");
-//        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("leave", variables);
-//
-//        //完成第一步申请
-//        String processId = processInstance.getId();
-//        System.out.println("processId: " + processId);
-//        Task task1 = taskService.createTaskQuery().processInstanceId(processId).singleResult();
-//        System.out.println("task1_Id: " + task1.getId());
-//        System.out.println("task1_Name: " + task1.getName());
-//        taskService.complete(task1.getId(), variables);
-//
-//        //完成第二步请求
-//        Task task2 = taskService.createTaskQuery().processInstanceId(processId).singleResult();
-//        variables.put("pass", true);
-//        taskService.complete(task2.getId(), variables);
-//
-//
-//        System.out.println(historyService.createHistoricProcessInstanceQuery().finished().count());
+
+        //启动流程leave
+        Map<String, Object> variables = new HashMap<String, Object>();
+        variables.put("apply", "zhangsan");
+        variables.put("approve", "lisi");
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("leave", variables);
+        ProcessInstance processInstance1 = runtimeService.startProcessInstanceByKey("leave", variables);
+        ExecutionEntity executionEntity = (ExecutionEntity) processInstance;
+        ExecutionEntity executionEntity1 = (ExecutionEntity) processInstance1;
+        System.out.println(executionEntity.getActivity());
+        System.out.println(executionEntity1.getActivity());
+
+
+        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(executionEntity.getActivity())));
+        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(variables)));
+        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(new Integer(0))));
+        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(new Object())));
+
+        if(executionEntity.getActivity() == executionEntity1.getActivity()) {
+            System.out.println("equal");
+        } else {
+            System.out.println("no equal");
+        }
+
+
+        //完成第一步申请
+        String processId = processInstance.getId();
+        System.out.println("processId: " + processId);
+        Task task1 = taskService.createTaskQuery().processInstanceId(processId).singleResult();
+        System.out.println("task1_Id: " + task1.getId());
+        System.out.println("task1_Name: " + task1.getName());
+        taskService.complete(task1.getId(), variables);
+
+        //完成第二步请求
+        Task task2 = taskService.createTaskQuery().processInstanceId(processId).singleResult();
+        variables.put("pass", true);
+        taskService.complete(task2.getId(), variables);
+
+
+        System.out.println("完成数：" + historyService.createHistoricProcessInstanceQuery().finished().count());
     }
 
     //multi instance如何设置的问题，先用instance 为1 就可以了
+    //有点问题，需要调试
     @Test
     public void testTravelBooking() {
         //验证是否有加载
