@@ -12,15 +12,11 @@
  */
 package org.activiti.engine.impl.bpmn.parser;
 
-import java.io.InputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import org.activiti.bpmn.constants.BpmnXMLConstants;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
@@ -39,6 +35,8 @@ import org.activiti.bpmn.model.SequenceFlow;
 import org.activiti.bpmn.model.SubProcess;
 import org.activiti.engine.ActivitiException;
 import org.activiti.engine.ActivitiIllegalArgumentException;
+import org.activiti.engine.ProcessEngineConfiguration;
+import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.impl.bpmn.data.ClassStructureDefinition;
 import org.activiti.engine.impl.bpmn.data.ItemDefinition;
 import org.activiti.engine.impl.bpmn.data.ItemKind;
@@ -77,7 +75,7 @@ import org.slf4j.LoggerFactory;
  * @author Tijs Rademakers
  * @author Joram Barrez
  */
-public class BpmnParse implements BpmnXMLConstants {
+public class BpmnParse implements BpmnXMLConstants, Serializable {
 
   protected static final Logger LOGGER = LoggerFactory.getLogger(BpmnParse.class);
 
@@ -169,69 +167,92 @@ public class BpmnParse implements BpmnXMLConstants {
     this.deployment = deployment;
     return this;
   }
-  
-  public BpmnParse execute() {
-    try {
 
-    	ProcessEngineConfigurationImpl processEngineConfiguration = Context.getProcessEngineConfiguration();
-      BpmnXMLConverter converter = new BpmnXMLConverter();
-      
-      boolean enableSafeBpmnXml = false;
-      String encoding = null;
-      if (processEngineConfiguration != null) {
-        enableSafeBpmnXml = processEngineConfiguration.isEnableSafeBpmnXml();
-        encoding = processEngineConfiguration.getXmlEncoding();
+  private MyBpmnModelCache redisCache = new MyBpmnModelCache();
+
+  public BpmnParse execute() {
+    Date start1 = null, end1 = null, start2 = null, end2 = null;
+    Date executeStart = new Date();
+    try {
+      start1 = new Date();
+      BpmnModel bmCache = redisCache.get(getSourceSystemId());
+      if (bmCache == null) {
+        ProcessEngineConfigurationImpl processEngineConfiguration = Context.getProcessEngineConfiguration();
+        BpmnXMLConverter converter = new BpmnXMLConverter();
+
+        boolean enableSafeBpmnXml = false;
+        String encoding = null;
+        if (processEngineConfiguration != null) {
+          enableSafeBpmnXml = processEngineConfiguration.isEnableSafeBpmnXml();
+          encoding = processEngineConfiguration.getXmlEncoding();
+        }
+
+        if (encoding != null) {
+          bpmnModel = converter.convertToBpmnModel(streamSource, validateSchema, enableSafeBpmnXml, encoding);
+        } else {
+          bpmnModel = converter.convertToBpmnModel(streamSource, validateSchema, enableSafeBpmnXml);
+        }
+
+        // XSD validation goes first, then process/semantic validation
+        if (validateProcess) {
+          ProcessValidator processValidator = processEngineConfiguration.getProcessValidator();
+          if (processValidator == null) {
+            LOGGER.warn("Process should be validated, but no process validator is configured on the process engine configuration!");
+          } else {
+            List<ValidationError> validationErrors = processValidator.validate(bpmnModel);
+            if(validationErrors != null && !validationErrors.isEmpty()) {
+
+              StringBuilder warningBuilder = new StringBuilder();
+              StringBuilder errorBuilder = new StringBuilder();
+
+              for (ValidationError error : validationErrors) {
+                if (error.isWarning()) {
+                  warningBuilder.append(error.toString());
+                  warningBuilder.append("\n");
+                } else {
+                  errorBuilder.append(error.toString());
+                  errorBuilder.append("\n");
+                }
+              }
+
+              // Throw exception if there is any error
+              if (errorBuilder.length() > 0) {
+                throw new ActivitiException("Errors while parsing:\n" + errorBuilder.toString());
+              }
+
+              // Write out warnings (if any)
+              if (warningBuilder.length() > 0) {
+                LOGGER.warn("Following warnings encountered during process validation: " + warningBuilder.toString());
+              }
+
+            }
+          }
+        }
+        redisCache.add(getSourceSystemId(), bpmnModel);
       }
-      
-      if (encoding != null) {
-        bpmnModel = converter.convertToBpmnModel(streamSource, validateSchema, enableSafeBpmnXml, encoding);
-      } else {
-        bpmnModel = converter.convertToBpmnModel(streamSource, validateSchema, enableSafeBpmnXml);
+      else {
+        System.out.println("引擎从redis获取bpmnmodel，不再重新解析");
+        bpmnModel = bmCache;
       }
-      
-      // XSD validation goes first, then process/semantic validation
-      if (validateProcess) {
-      	ProcessValidator processValidator = processEngineConfiguration.getProcessValidator();
-      	if (processValidator == null) {
-      		LOGGER.warn("Process should be validated, but no process validator is configured on the process engine configuration!");
-      	} else {
-      		List<ValidationError> validationErrors = processValidator.validate(bpmnModel);
-      		if(validationErrors != null && !validationErrors.isEmpty()) {
-      			
-      			StringBuilder warningBuilder = new StringBuilder();
-	      		StringBuilder errorBuilder = new StringBuilder();
-	      		
-	          for (ValidationError error : validationErrors) {
-	          	if (error.isWarning()) {
-	          		warningBuilder.append(error.toString());
-	          		warningBuilder.append("\n");
-	          	} else {
-	          		errorBuilder.append(error.toString());
-	          		errorBuilder.append("\n");
-	          	}
-	          }
-	           
-	          // Throw exception if there is any error
-	          if (errorBuilder.length() > 0) {
-	          	throw new ActivitiException("Errors while parsing:\n" + errorBuilder.toString());
-	          }
-	          
-	          // Write out warnings (if any)
-	          if (warningBuilder.length() > 0) {
-	          	LOGGER.warn("Following warnings encountered during process validation: " + warningBuilder.toString());
-	          }
-	          
-      		}
-      	}
-      }
-      
+      end1 = new Date();
+
+        // 判断缓存转化结果是否一致
+//      BpmnModel bm = redisCache.get("bpmnmodel");
+//      BpmnXMLConverter bpmnXMLConverter = new BpmnXMLConverter();
+//      String bpmnToxml1 = new String(bpmnXMLConverter.convertToXML(bpmnModel), "UTF-8");
+//      String bpmnToxml2 = new String(bpmnXMLConverter.convertToXML(bm), "UTF-8");
+//      if (bpmnToxml1.equals(bpmnToxml2)) System.out.println("正确");
+//      else System.out.println("错误");
+
+
       // Validation successfull (or no validation)
       createImports();
       createItemDefinitions();
       createMessages();
       createOperations();
+      start2 = new Date();
       transformProcessDefinitions();
-      
+      end2 = new Date();
     } catch (Exception e) {
       if (e instanceof ActivitiException) {
         throw (ActivitiException) e;
@@ -241,6 +262,24 @@ public class BpmnParse implements BpmnXMLConstants {
         throw new ActivitiException("Error parsing XML", e);
       }
     }
+
+    Date executeEnd = new Date();
+    String a1 = end1.getTime()-start1.getTime()+"";
+    String a2 = end2.getTime()-start2.getTime()+"";
+    String a3 = executeEnd.getTime()-executeStart.getTime()+"";
+
+    try {
+      File file = new File("C:/Users/Gordan/Desktop/1.txt");
+      FileWriter fileWritter = new FileWriter(file,true);
+      fileWritter.write(a1+" "+a2+" "+a3+"\n");
+      fileWritter.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    System.out.println("xml->bpmnModel所需时间：" + (end1.getTime()-start1.getTime()) + "ms");
+    System.out.println("bpmnModel->执行对象所需时间：" + (end2.getTime()-start2.getTime()) + "ms");
+    System.out.println("整体解析所需时间：" + (executeEnd.getTime()-executeStart.getTime()) + "ms");
 
     return this;
   }
@@ -728,5 +767,21 @@ public class BpmnParse implements BpmnXMLConstants {
   public String getSourceSystemId() {
     return this.sourceSystemId;
   }
-  
+
+  public static void main(String[] args) {
+    BpmnParser bpmnParser = new BpmnParser();
+
+    String resource = "C:\\Users\\Gordan\\Desktop\\travel-booking-process.bpmn20.xml";
+    InputStream inputStream = bpmnParser.getClass().getClassLoader().getResourceAsStream(resource);
+    DeploymentEntity deployment = new DeploymentEntity();
+    deployment.setId("1");
+    String resourceName = "processes/travel-booking-process.bpmn20.xml";
+
+    BpmnParse bpmnParse = bpmnParser.createParse()
+              .sourceInputStream(inputStream)
+              .setSourceSystemId(resourceName)
+              .deployment(deployment)
+              .name(resourceName);
+    bpmnParse.execute();
+  }
 }

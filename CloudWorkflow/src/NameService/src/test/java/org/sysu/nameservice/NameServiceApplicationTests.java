@@ -9,6 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.sysu.nameservice.service.ActivitiService;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +45,19 @@ public class NameServiceApplicationTests {
         String hotel = "1";
         String flight = "0";
         String car = "1";
+        Date start = new Date();
         simulationTravelBooking(traveler, hotel, flight, car);
+        Date end = new Date();
+        System.out.println("流程实例执行时间：" + (end.getTime()-start.getTime()) + "ms");
+
+        try {
+            File file = new File("C:/Users/Gordan/Desktop/2.txt");
+            FileWriter fileWritter = new FileWriter(file,true);
+            fileWritter.write((end.getTime()-start.getTime())+"\n");
+            fileWritter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressWarnings("unchecked")

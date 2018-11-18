@@ -12,9 +12,11 @@
  */
 package org.activiti.bpmn.model;
 
+import java.io.Serializable;
+
 /**
  * @author Tijs Rademakers
  */
-public abstract class Task extends Activity {
+public abstract class Task extends Activity implements Serializable {
 
 }

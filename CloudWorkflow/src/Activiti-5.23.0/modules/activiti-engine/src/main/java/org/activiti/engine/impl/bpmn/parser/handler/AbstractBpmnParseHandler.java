@@ -12,6 +12,7 @@
  */
 package org.activiti.engine.impl.bpmn.parser.handler;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -53,7 +54,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Joram Barrez
  */
-public abstract class AbstractBpmnParseHandler<T extends BaseElement> implements BpmnParseHandler {
+public abstract class AbstractBpmnParseHandler<T extends BaseElement> implements BpmnParseHandler, Serializable {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AbstractBpmnParseHandler.class);
   

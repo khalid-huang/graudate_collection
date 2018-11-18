@@ -132,7 +132,7 @@ public class BpmnDeployer implements Deployer {
         	bpmnParse.setValidateSchema(false);
         	bpmnParse.setValidateProcess(false);
         }
-        
+
         bpmnParse.execute();
         
         for (ProcessDefinitionEntity processDefinition: bpmnParse.getProcessDefinitions()) {

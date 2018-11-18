@@ -12,6 +12,7 @@
  */
 package org.activiti.engine.impl.bpmn.parser.factory;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.activiti.bpmn.model.BoundaryEvent;
@@ -98,7 +99,7 @@ import org.apache.commons.lang3.StringUtils;
  * 
  * @author Joram Barrez
  */
-public class DefaultActivityBehaviorFactory extends AbstractBehaviorFactory implements ActivityBehaviorFactory {
+public class DefaultActivityBehaviorFactory extends AbstractBehaviorFactory implements ActivityBehaviorFactory, Serializable {
   
   // Start event
   public final static String EXCEPTION_MAP_FIELD = "mapExceptions";

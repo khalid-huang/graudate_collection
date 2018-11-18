@@ -22,7 +22,7 @@ public class GlobalContext {
     public static final String ACTION_ACTIVITISERVICE_GETCURRENTTASKSOFASSIGNEE = "getCurrentTasksOfAssignee";
 
     /**用于保持busynessIndicator算法的busyness的目录地址；在MultiplePastTimeSlot中写入信息 */
-    public static final String ACTIVITISERVICE_BUSYNESS_DIRECTORY = "E:\\workspace\\cloud_workflow\\busynessDirectory";
+    public static final String ACTIVITISERVICE_BUSYNESS_DIRECTORY = "D:\\workspace\\cloud_workflow\\busynessDirectory";
 
 
     /**

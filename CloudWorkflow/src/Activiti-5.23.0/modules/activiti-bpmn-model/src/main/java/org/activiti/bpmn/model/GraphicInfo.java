@@ -13,10 +13,12 @@
 package org.activiti.bpmn.model;
 
 
+import java.io.Serializable;
+
 /**
  * @author Tijs Rademakers
  */
-public class GraphicInfo {
+public class GraphicInfo implements Serializable {
   
   protected double x;
   protected double y;

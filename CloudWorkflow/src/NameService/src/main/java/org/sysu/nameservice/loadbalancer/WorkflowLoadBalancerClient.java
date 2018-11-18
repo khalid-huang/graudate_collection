@@ -146,6 +146,14 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
             server = new Server(pire.getServerStr());
             workflowLoadBalancerRequest.setKeyValue("processInstanceId", pire.getActivitiProcessInstanceId());
 
+            //测试添加
+            //一个引擎
+//            ILoadBalancer loadBalancer = getLoaBalancer(GlobalContext.SERVICEID_ACTIVITISERVICE);
+//            getServer(loadBalancer);
+            //两个引擎
+            ILoadBalancer loadBalancer = getLoaBalancer(GlobalContext.SERVICEID_ACTIVITISERVICE);
+            server = getServer(loadBalancer);
+
         }
         if(server == null) {
             throw new IllegalStateException("No instance available for " + GlobalContext.SERVICEID_ACTIVITISERVICE);

@@ -12,19 +12,22 @@
  */
 package org.activiti.bpmn.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
+import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.apache.commons.lang3.StringUtils;
 
 
 /**
  * @author Tijs Rademakers
  */
-public class BpmnModel {
+public class BpmnModel implements Serializable {
   
   protected Map<String, List<ExtensionAttribute>> definitionsAttributes = new LinkedHashMap<String, List<ExtensionAttribute>>();
 	protected List<Process> processes = new ArrayList<Process>();
@@ -546,4 +549,5 @@ public class BpmnModel {
   public void setStartEventFormTypes(List<String> startEventFormTypes) {
     this.startEventFormTypes = startEventFormTypes;
   }
+
 }

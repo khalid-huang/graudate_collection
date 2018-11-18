@@ -13,6 +13,7 @@
 
 package org.activiti.spring;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import org.activiti.engine.delegate.VariableScope;
@@ -35,7 +36,7 @@ import org.springframework.context.ApplicationContext;
  *
  * @author Tom Baeyens
  */
-public class SpringExpressionManager extends ExpressionManager {
+public class SpringExpressionManager extends ExpressionManager implements Serializable {
 
     protected ApplicationContext applicationContext;
 

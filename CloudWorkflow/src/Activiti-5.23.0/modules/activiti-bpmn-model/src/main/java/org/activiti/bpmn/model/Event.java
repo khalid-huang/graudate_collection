@@ -12,13 +12,14 @@
  */
 package org.activiti.bpmn.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Tijs Rademakers
  */
-public abstract class Event extends FlowNode {
+public abstract class Event extends FlowNode implements Serializable {
 
   protected List<EventDefinition> eventDefinitions = new ArrayList<EventDefinition>();
 

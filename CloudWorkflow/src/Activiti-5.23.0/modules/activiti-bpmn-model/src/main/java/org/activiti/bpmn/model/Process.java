@@ -12,6 +12,7 @@
  */
 package org.activiti.bpmn.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 /**
  * @author Tijs Rademakers
  */
-public class Process extends BaseElement implements FlowElementsContainer, HasExecutionListeners {
+public class Process extends BaseElement implements FlowElementsContainer, HasExecutionListeners, Serializable {
 
   protected String name;
   protected boolean executable = true;

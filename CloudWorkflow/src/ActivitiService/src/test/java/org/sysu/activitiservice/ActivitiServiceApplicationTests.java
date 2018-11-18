@@ -1,21 +1,27 @@
 package org.sysu.activitiservice;
 
 
-import net.sourceforge.sizeof.SizeOf;
+//import net.sourceforge.sizeof.SizeOf;
+import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
+import org.activiti.engine.impl.event.logger.DatabaseEventFlusher;
 import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
+import org.activiti.engine.repository.DeploymentBuilder;
+import org.activiti.engine.repository.Model;
+import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Repeat;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.lang.instrument.Instrumentation;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +42,8 @@ public class ActivitiServiceApplicationTests {
     @Autowired
     private RepositoryService repositoryService;
 
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS");
+
     @Test
     public void contextLoads() {
         System.out.println("test");
@@ -44,8 +52,8 @@ public class ActivitiServiceApplicationTests {
     @Test
     public void testLeave() {
         //验证是否有加载到processes下面的流程文件
-        long count = repositoryService.createProcessDefinitionQuery().count();
-        System.out.println(count);
+//        long count = repositoryService.createProcessDefinitionQuery().count();
+//        System.out.println(count);
 
         //启动流程leave
         Map<String, Object> variables = new HashMap<String, Object>();
@@ -53,16 +61,17 @@ public class ActivitiServiceApplicationTests {
         variables.put("approve", "lisi");
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("leave", variables);
         ProcessInstance processInstance1 = runtimeService.startProcessInstanceByKey("leave", variables);
+        ProcessInstance processInstance3 = runtimeService.startProcessInstanceByKey("leave", variables);
         ExecutionEntity executionEntity = (ExecutionEntity) processInstance;
         ExecutionEntity executionEntity1 = (ExecutionEntity) processInstance1;
         System.out.println(executionEntity.getActivity());
         System.out.println(executionEntity1.getActivity());
 
 
-        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(executionEntity.getActivity())));
-        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(variables)));
-        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(new Integer(0))));
-        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(new Object())));
+//        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(executionEntity.getActivity())));
+//        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(variables)));
+//        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(new Integer(0))));
+//        System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(new Object())));
 
         if(executionEntity.getActivity() == executionEntity1.getActivity()) {
             System.out.println("equal");
@@ -93,8 +102,8 @@ public class ActivitiServiceApplicationTests {
     @Test
     public void testTravelBooking() {
         //验证是否有加载
-        long count = repositoryService.createProcessDefinitionQuery().count();
-        System.out.println(count);
+//        long count = repositoryService.createProcessDefinitionQuery().count();
+//        System.out.println(count);
 
         //参数设定
         String traveler = "Mike";
@@ -108,6 +117,7 @@ public class ActivitiServiceApplicationTests {
 
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("travel-booking", variables);
         System.out.println(pi);
+        
         //完成第一步：register
         Task registerTask = taskService.createTaskQuery().processInstanceId(pi.getId()).singleResult();
         System.out.println(registerTask.getName());
@@ -178,4 +188,33 @@ public class ActivitiServiceApplicationTests {
         //判断是否完成
         System.out.println(historyService.createHistoricProcessInstanceQuery().finished().count());
     }
+
+    @Test
+    public void testParse() {
+
+//        DeploymentBuilder builder = repositoryService.createDeployment();
+//        builder.addClasspathResource("processes/travel-booking-process.bpmn20.xml").deploy();
+
+//        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionKey("travel-booking").singleResult();
+//        System.out.println("ProcessDefinition Name: " + processDefinition.getName());
+
+        String traveler = "Mike";
+        String hotel = "1";
+        String flight = "0";
+        String car = "1";
+
+        //启动流程:
+        Map<String, Object> variables = new HashMap<String, Object>();
+        Map<String, Object> subVariables = new HashMap<String, Object>();
+
+
+        ProcessInstance pi = runtimeService.startProcessInstanceByKey("travel-booking", variables);
+        System.out.println(pi);
+//        Task registerTask = taskService.createTaskQuery().processInstanceId("7501").singleResult();
+//        System.out.println(registerTask.getName());
+
+
+
+    }
+
 }

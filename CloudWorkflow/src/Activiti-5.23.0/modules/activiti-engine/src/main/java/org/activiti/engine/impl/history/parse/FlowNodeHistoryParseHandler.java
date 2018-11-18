@@ -12,6 +12,7 @@
  */
 package org.activiti.engine.impl.history.parse;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -43,7 +44,7 @@ import org.activiti.engine.parse.BpmnParseHandler;
 /**
  * @author Joram Barrez
  */
-public class FlowNodeHistoryParseHandler implements BpmnParseHandler {
+public class FlowNodeHistoryParseHandler implements BpmnParseHandler, Serializable {
   
   protected static final ActivityInstanceEndHandler ACTIVITI_INSTANCE_END_LISTENER = new ActivityInstanceEndHandler();
 
