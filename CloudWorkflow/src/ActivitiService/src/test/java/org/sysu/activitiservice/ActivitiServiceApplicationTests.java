@@ -209,12 +209,12 @@ public class ActivitiServiceApplicationTests {
         Map<String, Object> variables = new HashMap<String, Object>();
         Map<String, Object> subVariables = new HashMap<String, Object>();
 
-        ProcessInstance pi = runtimeService.startProcessInstanceByKey("travel-booking", variables);
-        System.out.println(pi);
         ProcessInstance pi1 = runtimeService.startProcessInstanceByKey("myProcess", variables);
         System.out.println(pi1);
-        ProcessInstance pi2 = runtimeService.startProcessInstanceByKey("travel-booking", variables);
-        System.out.println(pi2);
+        ProcessInstance pi = runtimeService.startProcessInstanceByKey("travel-booking", variables);
+        System.out.println(pi);
+//        ProcessInstance pi2 = runtimeService.startProcessInstanceByKey("travel-booking", variables);
+//        System.out.println(pi2);
     }
 
 }

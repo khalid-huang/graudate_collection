@@ -13,6 +13,9 @@
 
 package org.activiti.engine.impl.persistence.deploy;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +38,8 @@ import org.activiti.engine.impl.persistence.entity.ResourceEntity;
 import org.activiti.engine.impl.util.io.BytesStreamSource;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -43,6 +48,8 @@ import org.activiti.engine.repository.ProcessDefinition;
  * @author Joram Barrez
  */
 public class DeploymentManager {
+
+  private static final Logger logger = LoggerFactory.getLogger(DeploymentManager.class);
 
   protected DeploymentCache<ProcessDefinitionEntity> processDefinitionCache;
   protected DeploymentCache<BpmnModel> bpmnModelCache;
@@ -148,7 +155,8 @@ public class DeploymentManager {
     }
     processDefinition = resolveProcessDefinition(processDefinition);
     Date d2 = new Date();
-    System.out.println("解析时间：" + (d2.getTime()-d1.getTime()) + "ms");
+    logger.info("内存模型转化时间: {}ms\n", d2.getTime()-d1.getTime());
+
     return processDefinition;
   }
 

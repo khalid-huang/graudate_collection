@@ -178,10 +178,7 @@ public class BpmnParse implements BpmnXMLConstants, Serializable {
 //      BpmnModel bmCache = redisCache.get(getSourceSystemId());
 //      if (bmCache == null) {
         ProcessEngineConfigurationImpl processEngineConfiguration = Context.getProcessEngineConfiguration();
-//        Date d1 = new Date();
         BpmnXMLConverter converter = new BpmnXMLConverter();
-//        Date d2 = new Date();
-//      System.out.println("BpmnXMLConverter构造时间： " + (d2.getTime()-d1.getTime()) + "ms");
 
         boolean enableSafeBpmnXml = false;
         String encoding = null;
@@ -271,18 +268,18 @@ public class BpmnParse implements BpmnXMLConstants, Serializable {
     String a2 = end2.getTime()-start2.getTime()+"";
     String a3 = executeEnd.getTime()-executeStart.getTime()+"";
 
-    try {
-      File file = new File("C:/Users/Gordan/Desktop/1.txt");
-      FileWriter fileWritter = new FileWriter(file,true);
-      fileWritter.write(a1+" "+a2+" "+a3+"\n");
-      fileWritter.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+//    try {
+//      File file = new File("C:/Users/Gordan/Desktop/model.txt");
+//      FileWriter fileWritter = new FileWriter(file,true);
+//      fileWritter.write(a1+" "+a2+" "+a3+" ");
+//      fileWritter.close();
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
 
-    System.out.println("xml->bpmnModel所需时间：" + (end1.getTime()-start1.getTime()) + "ms");
-    System.out.println("bpmnModel->执行对象所需时间：" + (end2.getTime()-start2.getTime()) + "ms");
-    System.out.println("整体解析所需时间：" + (executeEnd.getTime()-executeStart.getTime()) + "ms");
+    LOGGER.info("xml->bpmnModel解析时间：{}ms", a1);
+    LOGGER.info("bpmnModel->执行对象解析时间：{}ms", a2);
+    LOGGER.info("整体解析时间：{}ms", a3);
 
     return this;
   }

@@ -1,0 +1,149 @@
+2018-11-19 17:50:59.603 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:50:59.603 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：4ms
+2018-11-19 17:50:59.604 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:50:59.605 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 15ms
+
+2018-11-19 17:51:34.468 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:51:34.468 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:51:34.468 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 17:51:34.471 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 18ms
+
+2018-11-19 17:51:57.345 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:51:57.345 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:51:57.345 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 17:51:57.347 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 18ms
+
+2018-11-19 17:52:15.079 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 17:52:15.079 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:52:15.079 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 17:52:15.081 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
+
+2018-11-19 17:52:36.287 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:52:36.287 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:52:36.287 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 17:52:36.289 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
+
+2018-11-19 17:53:05.097 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 17:53:05.097 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:53:05.097 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:53:05.099 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 17:53:30.759 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：9ms
+2018-11-19 17:53:30.759 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:53:30.759 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：15ms
+2018-11-19 17:53:30.760 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 20ms
+
+2018-11-19 17:53:58.788 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:53:58.789 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：4ms
+2018-11-19 17:53:58.789 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:53:58.790 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 17:54:21.405 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：8ms
+2018-11-19 17:54:21.405 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:54:21.405 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：14ms
+2018-11-19 17:54:21.408 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 23ms
+
+2018-11-19 17:54:42.667 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：4ms
+2018-11-19 17:54:42.667 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:54:42.667 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:54:42.669 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 17:55:06.645 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 17:55:06.645 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:55:06.645 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:55:06.647 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 17:55:26.513 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:55:26.513 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：4ms
+2018-11-19 17:55:26.513 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:55:26.515 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 17:55:45.488 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 17:55:45.488 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:55:45.488 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:55:45.490 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 17:56:15.483 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:56:15.483 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:56:15.483 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 17:56:15.484 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
+
+2018-11-19 17:56:38.571 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 17:56:38.571 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:56:38.571 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:56:38.573 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 17:57:01.185 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:57:01.185 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 17:57:01.185 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 17:57:01.187 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
+
+2018-11-19 17:57:23.942 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:57:23.942 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:57:23.942 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：12ms
+2018-11-19 17:57:23.943 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
+
+2018-11-19 17:57:52.845 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 17:57:52.846 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：4ms
+2018-11-19 17:57:52.846 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：9ms
+2018-11-19 17:57:52.847 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 15ms
+
+2018-11-19 17:58:12.753 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：8ms
+2018-11-19 17:58:12.754 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：4ms
+2018-11-19 17:58:12.754 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：12ms
+2018-11-19 17:58:12.755 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 19ms
+
+2018-11-19 17:58:32.208 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:58:32.208 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:58:32.208 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：12ms
+2018-11-19 17:58:32.209 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 18ms
+
+2018-11-19 17:59:04.597 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 17:59:04.598 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:59:04.598 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 17:59:04.599 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
+
+2018-11-19 17:59:30.996 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：7ms
+2018-11-19 17:59:30.996 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 17:59:30.996 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：13ms
+2018-11-19 17:59:30.998 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 18ms
+
+2018-11-19 17:59:54.699 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 17:59:54.699 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：4ms
+2018-11-19 17:59:54.700 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 17:59:54.702 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 18:00:14.956 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 18:00:14.956 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 18:00:14.956 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 18:00:14.957 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 15ms
+
+2018-11-19 18:00:35.227 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 18:00:35.227 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 18:00:35.227 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 18:00:35.229 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 16ms
+
+2018-11-19 18:00:56.769 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 18:00:56.769 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：4ms
+2018-11-19 18:00:56.769 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 18:00:56.771 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 15ms
+
+2018-11-19 18:01:14.961 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 18:01:14.961 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 18:01:14.961 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 18:01:14.963 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
+
+2018-11-19 18:01:44.121 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：5ms
+2018-11-19 18:01:44.121 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 18:01:44.121 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：10ms
+2018-11-19 18:01:44.123 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 19ms
+
+2018-11-19 18:02:09.287 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 18:02:09.287 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：6ms
+2018-11-19 18:02:09.287 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：12ms
+2018-11-19 18:02:09.289 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 18ms
+
+2018-11-19 18:02:38.330 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - xml->bpmnModel解析时间：6ms
+2018-11-19 18:02:38.330 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - bpmnModel->执行对象解析时间：5ms
+2018-11-19 18:02:38.330 [main] INFO  o.a.e.impl.bpmn.parser.BpmnParse - 整体解析时间：11ms
+2018-11-19 18:02:38.332 [main] INFO  o.a.e.i.p.deploy.DeploymentManager - 内存模型转化时间: 17ms
