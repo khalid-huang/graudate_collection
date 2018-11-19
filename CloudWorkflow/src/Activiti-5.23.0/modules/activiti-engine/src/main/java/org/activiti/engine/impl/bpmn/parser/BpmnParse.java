@@ -175,10 +175,13 @@ public class BpmnParse implements BpmnXMLConstants, Serializable {
     Date executeStart = new Date();
     try {
       start1 = new Date();
-      BpmnModel bmCache = redisCache.get(getSourceSystemId());
-      if (bmCache == null) {
+//      BpmnModel bmCache = redisCache.get(getSourceSystemId());
+//      if (bmCache == null) {
         ProcessEngineConfigurationImpl processEngineConfiguration = Context.getProcessEngineConfiguration();
+//        Date d1 = new Date();
         BpmnXMLConverter converter = new BpmnXMLConverter();
+//        Date d2 = new Date();
+//      System.out.println("BpmnXMLConverter构造时间： " + (d2.getTime()-d1.getTime()) + "ms");
 
         boolean enableSafeBpmnXml = false;
         String encoding = null;
@@ -228,12 +231,12 @@ public class BpmnParse implements BpmnXMLConstants, Serializable {
             }
           }
         }
-        redisCache.add(getSourceSystemId(), bpmnModel);
-      }
-      else {
-        System.out.println("引擎从redis获取bpmnmodel，不再重新解析");
-        bpmnModel = bmCache;
-      }
+//        redisCache.add(getSourceSystemId(), bpmnModel);
+//      }
+//      else {
+//        System.out.println("引擎从redis获取bpmnmodel，不再重新解析");
+//        bpmnModel = bmCache;
+//      }
       end1 = new Date();
 
         // 判断缓存转化结果是否一致

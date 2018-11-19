@@ -21,7 +21,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Repeat;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.lang.instrument.Instrumentation;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -193,7 +195,7 @@ public class ActivitiServiceApplicationTests {
     public void testParse() {
 
 //        DeploymentBuilder builder = repositoryService.createDeployment();
-//        builder.addClasspathResource("processes/travel-booking-process.bpmn20.xml").deploy();
+//        builder.addClasspathResource("processes/travel.bpmn20.xml").deploy();
 
 //        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionKey("travel-booking").singleResult();
 //        System.out.println("ProcessDefinition Name: " + processDefinition.getName());
@@ -207,14 +209,12 @@ public class ActivitiServiceApplicationTests {
         Map<String, Object> variables = new HashMap<String, Object>();
         Map<String, Object> subVariables = new HashMap<String, Object>();
 
-
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("travel-booking", variables);
         System.out.println(pi);
-//        Task registerTask = taskService.createTaskQuery().processInstanceId("7501").singleResult();
-//        System.out.println(registerTask.getName());
-
-
-
+        ProcessInstance pi1 = runtimeService.startProcessInstanceByKey("myProcess", variables);
+        System.out.println(pi1);
+        ProcessInstance pi2 = runtimeService.startProcessInstanceByKey("travel-booking", variables);
+        System.out.println(pi2);
     }
 
 }

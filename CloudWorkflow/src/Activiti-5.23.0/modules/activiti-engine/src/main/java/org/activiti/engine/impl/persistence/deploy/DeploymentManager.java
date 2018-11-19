@@ -14,6 +14,7 @@
 package org.activiti.engine.impl.persistence.deploy;
 
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -136,6 +137,7 @@ public class DeploymentManager {
   }
   
   public ProcessDefinitionEntity findDeployedLatestProcessDefinitionByKey(String processDefinitionKey) {
+    Date d1 = new Date();
     ProcessDefinitionEntity processDefinition = Context
       .getCommandContext()
       .getProcessDefinitionEntityManager()
@@ -145,6 +147,8 @@ public class DeploymentManager {
       throw new ActivitiObjectNotFoundException("no processes deployed with key '"+processDefinitionKey+"'", ProcessDefinition.class);
     }
     processDefinition = resolveProcessDefinition(processDefinition);
+    Date d2 = new Date();
+    System.out.println("解析时间：" + (d2.getTime()-d1.getTime()) + "ms");
     return processDefinition;
   }
 
