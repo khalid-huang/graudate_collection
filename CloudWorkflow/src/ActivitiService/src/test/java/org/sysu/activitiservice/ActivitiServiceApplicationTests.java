@@ -88,6 +88,9 @@ public class ActivitiServiceApplicationTests {
         System.out.println("完成数：" + historyService.createHistoricProcessInstanceQuery().finished().count());
     }
 
+
+
+
     //multi instance如何设置的问题，先用instance 为1 就可以了
     //有点问题，需要调试
     @Test
