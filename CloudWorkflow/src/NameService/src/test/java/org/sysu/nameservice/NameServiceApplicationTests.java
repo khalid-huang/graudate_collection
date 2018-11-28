@@ -3,6 +3,8 @@ package org.sysu.nameservice;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,9 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class NameServiceApplicationTests {
+
+    private static Logger logger = LoggerFactory.getLogger(NameServiceApplicationTests.class);
+
     @Autowired
     ActivitiService activitiService;
 
@@ -48,16 +53,8 @@ public class NameServiceApplicationTests {
         Date start = new Date();
         simulationTravelBooking(traveler, hotel, flight, car);
         Date end = new Date();
-        System.out.println("流程实例执行时间：" + (end.getTime()-start.getTime()) + "ms");
+        logger.info("流程实例执行时间：{} ms", end.getTime()-start.getTime());
 
-        try {
-            File file = new File("C:/Users/Gordan/Desktop/2.txt");
-            FileWriter fileWritter = new FileWriter(file,true);
-            fileWritter.write((end.getTime()-start.getTime())+"\n");
-            fileWritter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @SuppressWarnings("unchecked")

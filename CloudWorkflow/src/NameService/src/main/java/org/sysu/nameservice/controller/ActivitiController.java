@@ -18,8 +18,6 @@ public class ActivitiController {
     @Autowired
     ActivitiService activitiService;
 
-
-
     @RequestMapping(value = "startProcess/{processModelKey}", method = RequestMethod.POST)
     public ResponseEntity<?> startProcess(@RequestBody(required = false)Map<String, Object> data,
                                           @PathVariable(value = "processModelKey", required = false) String processModelKey) {

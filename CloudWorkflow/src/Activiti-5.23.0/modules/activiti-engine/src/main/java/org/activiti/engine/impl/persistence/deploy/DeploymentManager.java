@@ -71,10 +71,10 @@ public class DeploymentManager {
     if (processDefinitionId == null) {
       throw new ActivitiIllegalArgumentException("Invalid process definition id : null");
     }
-    
+
     // first try the cache
     ProcessDefinitionEntity processDefinition = processDefinitionCache.get(processDefinitionId);
-    
+
     if (processDefinition == null) {
       processDefinition = Context.getCommandContext()
         .getProcessDefinitionEntityManager()
@@ -144,7 +144,7 @@ public class DeploymentManager {
   }
   
   public ProcessDefinitionEntity findDeployedLatestProcessDefinitionByKey(String processDefinitionKey) {
-    Date d1 = new Date();
+//    Date d1 = new Date();
     ProcessDefinitionEntity processDefinition = Context
       .getCommandContext()
       .getProcessDefinitionEntityManager()
@@ -154,8 +154,8 @@ public class DeploymentManager {
       throw new ActivitiObjectNotFoundException("no processes deployed with key '"+processDefinitionKey+"'", ProcessDefinition.class);
     }
     processDefinition = resolveProcessDefinition(processDefinition);
-    Date d2 = new Date();
-    logger.info("内存模型转化时间: {}ms\n", d2.getTime()-d1.getTime());
+//    Date d2 = new Date();
+//    logger.info("内存模型转化时间: {}ms\n", d2.getTime()-d1.getTime());
 
     return processDefinition;
   }

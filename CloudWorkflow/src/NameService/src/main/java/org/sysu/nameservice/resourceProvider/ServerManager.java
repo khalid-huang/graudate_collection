@@ -8,7 +8,7 @@ import org.sysu.nameservice.loadbalancer.Server;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 负责所有与server信息相关的管理，比如设置Server，关掉Server，但不去维护，先简易实现，因为目前的Server信息其实是维护在了每个serverId的BaseLoadBalancer里面，所以ServerManager*/
+/** 负责所有与server信息相关的管理，比如设置Server，关掉Server，但不去维护，先简易实现，因为目前的Server信息其实是维护在了每个serverId的BaseLoadBalancer里面*/
 @Component
 public class ServerManager implements IResourceManager<Server> {
     @Autowired

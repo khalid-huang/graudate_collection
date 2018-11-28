@@ -20,6 +20,7 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest {
     private OkHttpClientRouter okHttpClientRouter = OkHttpClientRouter.getInstance();
 
     private Request request;
+
     /** 回调函数 */
     private OkHttpCallback callback;
 
@@ -62,7 +63,6 @@ public class WorkflowLoadBalancerRequest implements LoadBalancerRequest {
             url += "/" + info.get("url") + "/" + info.get("processModelKey");
         } else if(action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTSINGLETASK)
                 || action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTTASKS)
-                || action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTSINGLETASK)
                 || action.equals(GlobalContext.ACTION_ACTIVITISERVICE_GETCURRENTTASKSOFASSIGNEE)) {
             url += "/" + info.get("url") + "/" + info.get("processInstanceId");
         } else if(action.equals(GlobalContext.ACTION_ACTIVITISERVICE_COMPLETETASK)

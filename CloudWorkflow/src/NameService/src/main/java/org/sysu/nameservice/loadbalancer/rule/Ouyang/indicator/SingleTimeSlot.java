@@ -23,7 +23,7 @@ public class SingleTimeSlot implements Slot {
     BasicCounter requestNumber;
 
     /** the average processing time per processed request (in milliseconds)*/
-    private Distribution processTimeDist;;
+    private Distribution processTimeDist;
 
     /**the number of work item starts and completions per second*/
     /** 计算start和completion的workitem的和 */
@@ -46,7 +46,7 @@ public class SingleTimeSlot implements Slot {
     }
 
     /**
-     * 这里是以30s为一个单位，也就是说统计是统计每30s里面的，然后计算每秒的请求数时，就是总数量去除以30就可以了；
+     * 这里是以3s为一个单位，也就是说统计是统计每3s里面的，然后计算每秒的请求数时，就是总数量去除以3就可以了；
      */
     public SingleTimeSlot() {
         this(defaultInterval);

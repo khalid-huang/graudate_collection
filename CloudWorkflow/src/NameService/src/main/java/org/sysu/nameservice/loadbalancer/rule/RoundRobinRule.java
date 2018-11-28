@@ -44,6 +44,10 @@ public class RoundRobinRule extends AbstractLoadBalancerRule {
 
             int nextServerIndex = incrementAndGetModulo(serverCount);
             server = allServers.get(nextServerIndex);
+
+            System.out.println("RoundRobinRule: upSize = " + upCount + " " + "allSize = " + serverCount);
+            System.out.println("index: " + nextServerIndex);
+
             if(server == null) {
                 Thread.yield();
                 continue;

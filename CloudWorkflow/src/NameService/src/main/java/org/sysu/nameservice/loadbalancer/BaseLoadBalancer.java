@@ -29,9 +29,14 @@ public class BaseLoadBalancer extends AbstractLoadBalancer {
 
     protected LoadBalancerStats loadBalancerStats;
 
+//    public BaseLoadBalancer() {
+//        setRule(DEFAULT_RULE);
+//        loadBalancerStats = new LoadBalancerStats(DEFAULT_NAME);
+//    }
+
     public BaseLoadBalancer() {
         setRule(DEFAULT_RULE);
-        loadBalancerStats = new LoadBalancerStats(DEFAULT_NAME);
+        loadBalancerStats = new ActivitiLoadBalancerStats(DEFAULT_NAME);
     }
 
     public BaseLoadBalancer(IRule rule) {
@@ -41,7 +46,6 @@ public class BaseLoadBalancer extends AbstractLoadBalancer {
     public BaseLoadBalancer(IRule rule, LoadBalancerStats loadBalancerStats) {
         setRule(rule);
         this.loadBalancerStats = loadBalancerStats;
-
     }
 
     public void setRule(IRule rule) {

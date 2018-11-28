@@ -195,10 +195,7 @@ public class ActivitiServiceApplicationTests {
     public void testParse() {
 
 //        DeploymentBuilder builder = repositoryService.createDeployment();
-//        builder.addClasspathResource("processes/travel.bpmn20.xml").deploy();
-
-//        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionKey("travel-booking").singleResult();
-//        System.out.println("ProcessDefinition Name: " + processDefinition.getName());
+//        builder.addClasspathResource( "processes/travel-booking-process.bpmn20.xml").deploy();
 
         String traveler = "Mike";
         String hotel = "1";

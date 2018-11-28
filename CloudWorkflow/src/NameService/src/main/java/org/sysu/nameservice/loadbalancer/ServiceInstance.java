@@ -4,8 +4,7 @@ import java.net.URI;
 import java.util.Map;
 
 /**
- * 服务发现系统上的服务实例；
- * 为了方便，不使用服务发现与注册
+ * 服务实例类
  */
 public interface ServiceInstance {
     /**

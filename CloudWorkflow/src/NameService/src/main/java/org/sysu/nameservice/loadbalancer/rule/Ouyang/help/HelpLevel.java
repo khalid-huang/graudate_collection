@@ -17,6 +17,6 @@ public final class HelpLevel {
         double third = (workItems.getFirstVal() / workItems.getSecondVal()) * workItems.getThirdVal();
         double fourth = (executingThreads.getFirstVal() / executingThreads.getSecondVal()) * executingThreads.getThirdVal();
 
-        return new Double((first + second + third + fourth) * 100).intValue();
+        return new Double((first + second + third + fourth) / 4 * 100).intValue();
     }
 }

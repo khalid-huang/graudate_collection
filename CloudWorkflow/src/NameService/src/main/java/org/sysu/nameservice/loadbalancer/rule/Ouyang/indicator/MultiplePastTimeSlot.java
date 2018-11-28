@@ -20,7 +20,7 @@ public class MultiplePastTimeSlot {
     /** 每个分片的时间长度，单位为ms；这里是3s*/
     private static long defaultSingleInterval = 3 * 1000;
 
-    /** 表示整体的时间长度；这里是100个，也就是表示可以缓存40 * 3s也就是2分钟的数据 */
+    /** 表示整体的时间长度；这里是40个，也就是表示可以缓存40 * 3s也就是2分钟的数据 */
     private static final int defaultSize = 40;
 
     private String name;

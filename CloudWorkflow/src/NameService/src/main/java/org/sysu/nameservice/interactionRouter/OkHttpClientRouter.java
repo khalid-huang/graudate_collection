@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 先使用单例的模式
  */
-public class   OkHttpClientRouter implements IIteractionRouter {
+public class OkHttpClientRouter implements IIteractionRouter {
 
     private static OkHttpClientRouter instance = new OkHttpClientRouter();
 

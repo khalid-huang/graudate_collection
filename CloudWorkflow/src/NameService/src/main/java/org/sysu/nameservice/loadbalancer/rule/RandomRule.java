@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class RandomRule extends AbstractLoadBalancerRule {
 
-    Random rand;
+    private Random rand;
 
     public RandomRule() {
         rand = new Random();

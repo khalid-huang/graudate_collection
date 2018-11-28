@@ -51,13 +51,11 @@ public abstract class AbstractBusynessIndicatorServerStats implements IServerSta
     @Override
     public void noteRequestFail(Map<String, Object> data) {
         Map<String, String> recordData = new HashMap<>();
-
         timeSlots.noteRequestFail(recordData);
     }
 
     @Override
     public void initialize(Server server) {
-
         this.server = server;
     }
 }

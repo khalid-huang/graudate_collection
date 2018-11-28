@@ -64,7 +64,6 @@ public class LevelOneRule extends AbstractLoadBalancerRule {
             logger.warn("No available alive servers after 10 tries from load balancer: " + lb);
         }
         return server;
-
     }
 
     //LoadBalancerStats里面维护了server与Stats的对应关系，根据server获取其stats，而对于stats中有MultiTimeSlot的信息就可以了
@@ -76,7 +75,7 @@ public class LevelOneRule extends AbstractLoadBalancerRule {
         Server result = null;
         int minBusyness = Integer.MAX_VALUE;
         for(Server server : reachableServer) {
-            BusynessIndicatorForLevelOneServerStats ss = (BusynessIndicatorForLevelOneServerStats)  stats.getSingleServerStat(server);
+            BusynessIndicatorForLevelOneServerStats ss = (BusynessIndicatorForLevelOneServerStats)stats.getSingleServerStat(server);
             int tempBusyness = ss.getBusyness();
             if(minBusyness > tempBusyness) {
                 minBusyness = tempBusyness;
