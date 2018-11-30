@@ -101,6 +101,7 @@ public class BpmnDeployer implements Deployer {
 
     final ProcessEngineConfigurationImpl processEngineConfiguration = Context.getProcessEngineConfiguration();
     for (String resourceName : resources.keySet()) {
+        System.out.println("fffffff" + resourceName);
 
       log.info("Processing resource {}", resourceName);
       if (isBpmnResource(resourceName)) {

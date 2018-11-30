@@ -40,7 +40,12 @@ public abstract class ScopeImpl extends ProcessElementImpl implements PvmScope {
   public ScopeImpl(String id, ProcessDefinitionImpl processDefinition) {
     super(id, processDefinition);
   }
-  
+
+  //for test
+  public Map<String , ActivityImpl> getNamedActivities() {
+    return this.namedActivities;
+  }
+
   public ActivityImpl findActivity(String activityId) {
     ActivityImpl localActivity = namedActivities.get(activityId);
     if (localActivity!=null) {
