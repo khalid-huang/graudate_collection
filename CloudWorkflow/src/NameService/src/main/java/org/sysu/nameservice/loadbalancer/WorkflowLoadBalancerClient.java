@@ -1,5 +1,7 @@
 package org.sysu.nameservice.loadbalancer;
 
+import com.alibaba.fastjson.JSON;
+import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,7 +108,8 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
         if(server == null) {
             throw new IllegalStateException("No instance available for " + serviceId);
         }
-        WorkflowBalancerContext context = new WorkflowBalancerContext(getLoadBalancer(serviceId));
+        ILoadBalancer loadBalancer = getLoadBalancer(serviceId);
+        WorkflowBalancerContext context = new WorkflowBalancerContext(loadBalancer);
         /** 根据不同的调度策略来生成不同的stats类型; 如果是之前已经存在的，这个WorkflowStatsRecorder只是一个辅助类，用来获取保存在LoadBalancer里面的stats*/
         WorkflowStatsRecorder statsRecorder = new WorkflowStatsRecorder(context, server);
         /** 进行请求时数据统计 */
@@ -127,6 +130,14 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
             Map<String,Object> data = new HashMap<>();
             data.put("status", "fail");
             statsRecorder.recordRequestCompelteStats(data);
+        }
+
+        // 启动流程后加入ServerGroup
+        Map<String, String> response = JSON.parseObject(returnVal, Map.class);
+        String processInstanceId = response.get("processInstanceId");
+        if (processInstanceId != null) {
+            ((ActivitiLoadBalancerStats)((BaseLoadBalancer)loadBalancer).getLoadBalancerStats())
+                    .addServerToServerGroup(processInstanceId, server);
         }
 
         /** 打印调试信息 */
@@ -235,5 +246,9 @@ public class WorkflowLoadBalancerClient implements LoadBalancerClient {
             sb.append('}');
             return sb.toString();
         }
+    }
+
+    public Map<String, ILoadBalancer> getServiceIdToLoadBalancer() {
+        return serviceIdToLoadBalancer;
     }
 }

@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -57,8 +58,12 @@ public class NameServiceApplicationTests {
 
     }
 
+    // 测试删除服务器
+//    static final CountDownLatch INSTANCE_COUNT = new CountDownLatch(300);
+
     @SuppressWarnings("unchecked")
     private void simulationTravelBooking(String traveler, String hotel, String flight, String car) throws Exception {
+//        activitiService.deleteServerFromServerGroup();
         //
 //        //启动流程:
         Map<String, Object> variables = new HashMap<String, Object>();
@@ -176,5 +181,6 @@ public class NameServiceApplicationTests {
 
 //        //判断是否完成
 //        System.out.println(historyService.createHistoricProcessInstanceQuery().finished().count());
+//        INSTANCE_COUNT.await();
     }
 }

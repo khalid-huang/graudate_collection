@@ -2,6 +2,7 @@ package org.sysu.nameservice.service;
 
 import jdk.nashorn.internal.objects.Global;
 import okhttp3.Response;
+import org.quartz.SchedulerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.sysu.nameservice.GlobalContext;
 import org.sysu.nameservice.loadbalancer.*;
 import org.sysu.nameservice.loadbalancer.rule.Ouyang.OuYangContext;
+import org.sysu.nameservice.loadbalancer.rule.activiti.DeleteServerFromServerGroupJob;
 import org.sysu.nameservice.loadbalancer.stats.BaseServerStats;
 import org.sysu.nameservice.loadbalancer.stats.IServerStats;
 
@@ -137,6 +139,17 @@ public class ActivitiService {
         WorkflowLoadBalancerRequest workflowLoadBalancerRequest = new WorkflowLoadBalancerRequest(false, "POST", info, headers, params, null);
         String responseString = workflowLoadBalancerClient.execute(serviceId, workflowLoadBalancerRequest);
         return responseString;
+    }
+
+    public void deleteServerFromServerGroup() {
+        try {
+            DeleteServerFromServerGroupJob job = new DeleteServerFromServerGroupJob();
+            job.schedulerJob(workflowLoadBalancerClient.getServiceIdToLoadBalancer());
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

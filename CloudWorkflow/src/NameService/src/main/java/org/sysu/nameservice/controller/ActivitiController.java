@@ -184,4 +184,5 @@ public class ActivitiController {
         return ResponseEntity.status(HttpStatus.OK).body(JSON.toJSONString(response));
     }
 
+
 }

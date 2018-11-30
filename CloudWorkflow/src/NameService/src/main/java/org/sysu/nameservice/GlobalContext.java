@@ -53,4 +53,10 @@ public class GlobalContext {
      */
     public static final String URL_ACTIVITISERVICE_COMPLETETASK="/completeTask";
 
+    // 可配置服务器组最多维护的服务器数
+    public static final int MAX_SERVER_IN_GROUP = 3;
+
+    // 指定负载
+    public static final int LOADFACTOR = 1000;
+
 }

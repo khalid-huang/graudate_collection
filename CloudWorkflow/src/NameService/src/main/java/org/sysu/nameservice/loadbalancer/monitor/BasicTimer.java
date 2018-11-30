@@ -41,9 +41,6 @@ public class BasicTimer extends AbstractMonitor<Long> implements Timer {
         timeUnitNanosFactor = 1.0 / timeUnit.toNanos(1);
         totalTime = new AtomicLong(0L);
         count = new AtomicLong(0L);
-
-
-
     }
 
     @Override

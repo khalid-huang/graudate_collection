@@ -34,6 +34,7 @@ public class BaseLoadBalancer extends AbstractLoadBalancer {
 //        loadBalancerStats = new LoadBalancerStats(DEFAULT_NAME);
 //    }
 
+    // 使用Activiti时使用
     public BaseLoadBalancer() {
         setRule(DEFAULT_RULE);
         loadBalancerStats = new ActivitiLoadBalancerStats(DEFAULT_NAME);

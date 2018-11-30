@@ -2,11 +2,8 @@ package org.sysu.nameservice.loadbalancer.rule.activiti;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.sysu.nameservice.loadbalancer.ActivitiLoadBalancerStats;
-import org.sysu.nameservice.loadbalancer.AbstractLoadBalancer;
-import org.sysu.nameservice.loadbalancer.ILoadBalancer;
-import org.sysu.nameservice.loadbalancer.LoadBalancerStats;
-import org.sysu.nameservice.loadbalancer.Server;
+import org.sysu.nameservice.GlobalContext;
+import org.sysu.nameservice.loadbalancer.*;
 import org.sysu.nameservice.loadbalancer.rule.Ouyang.LevelOneRule;
 import org.sysu.nameservice.loadbalancer.stats.busynessIndicator.BusynessIndicatorForActivitiServerStats;
 
@@ -23,8 +20,6 @@ public class ActivitiRule extends LevelOneRule {
 
     private static Logger logger = LoggerFactory.getLogger(ActivitiRule.class);
 
-    // 指定负载
-    private final int LOADFACTOR = 1000;
 
     public ActivitiRule() {}
 
@@ -75,10 +70,11 @@ public class ActivitiRule extends LevelOneRule {
         }
         logger.info("ActivitiRule......");
 
-        /* 根据流程实例id选择Server */
+        /** 根据流程实例id选择Server */
         String processInstanceId = (String) key;
+        System.out.println("key: " + processInstanceId);
         Server result = null;
-        Set<Server> serverGroup = ((ActivitiLoadBalancerStats)stats).getServerListByProcessInstanceId(processInstanceId);
+        ServerGroup serverGroup = ((ActivitiLoadBalancerStats)stats).getServerGroupByProcessInstanceId(processInstanceId);
         // 第一次执行该流程实例
         if (serverGroup == null) {
             logger.info("第一次执行流程实例......");
@@ -89,10 +85,18 @@ public class ActivitiRule extends LevelOneRule {
         // 从之前执行的引擎中选择
         else {
             logger.info("从之前执行过的引擎中选择......");
-            Set<Server> previousServers = ((ActivitiLoadBalancerStats)stats).getServerListByProcessInstanceId(processInstanceId);
-            List<Server> previousServersList = new ArrayList<>(previousServers);
-            result = chooseMinBusynessFromServerGroup(reachableServer, previousServersList, stats);
-            ((ActivitiLoadBalancerStats)stats).addServerToServerGroup(processInstanceId, result);
+            List<Server> previousServersList = new ArrayList<>(serverGroup.getServerSets());
+            // 特殊情况只有一个引擎时
+            if (GlobalContext.MAX_SERVER_IN_GROUP == 1) {
+                result = previousServersList.get(0);
+            }
+            else {
+                result = chooseMinBusynessFromServerGroup(reachableServer, previousServersList, stats);
+                if (serverGroup.getServerSets().size() < GlobalContext.MAX_SERVER_IN_GROUP) {
+                    if (!((ActivitiLoadBalancerStats)stats).getServerGroupByProcessInstanceId(processInstanceId).getServerSets().contains(result))
+                        ((ActivitiLoadBalancerStats)stats).addServerToServerGroup(processInstanceId, result);
+                }
+            }
         }
         logger.info("选择引擎{}", result.getId());
         return result;
@@ -125,7 +129,7 @@ public class ActivitiRule extends LevelOneRule {
                 result = server;
             }
         }
-        if (minBusyness > LOADFACTOR) {
+        if (minBusyness > GlobalContext.LOADFACTOR) {
             reachableServer.removeAll(previousServersList);
             for (Server server : reachableServer) {
                 BusynessIndicatorForActivitiServerStats ss = (BusynessIndicatorForActivitiServerStats) stats.getSingleServerStat(server);
